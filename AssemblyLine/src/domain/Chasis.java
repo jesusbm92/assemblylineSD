@@ -4,9 +4,9 @@ public class Chasis implements Command {
 
 	private Boolean isPlaced;
 
-	public Chasis(Boolean isPlaced) {
+	public Chasis() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {

@@ -3,10 +3,10 @@ package domain;
 public class Engine implements Command{
 	private Boolean isPlaced;
 	
-	public Engine(Boolean isPlaced) {
+	public Engine() {
 		// TODO Auto-generated constructor stub
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 	public Boolean getIsPlaced() {
 		return isPlaced;
