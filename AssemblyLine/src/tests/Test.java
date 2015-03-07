@@ -1,5 +1,7 @@
 package tests;
 
 public class Test {
-bbbbb
+public void hola(){
+	
+}
 }
