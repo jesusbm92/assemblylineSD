@@ -24,8 +24,7 @@ public class Sit implements Command{
 			s.setIsPlaced(true);
 		}
 		// To change for graphic application instead of console output
-		System.out.println("Chasis placed correctly");
-		
+		System.out.println("Chasis placed correctly");	
 	}
 	
 
