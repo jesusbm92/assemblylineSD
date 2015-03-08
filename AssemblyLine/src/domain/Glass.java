@@ -4,9 +4,9 @@ public class Glass implements Command{
 	
 	private Boolean isPlaced;
 
-	public Glass(Boolean isPlaced) {
+	public Glass() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {

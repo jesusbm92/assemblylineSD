@@ -4,9 +4,9 @@ public class Upholstery implements Command {
 
 	private Boolean isPlaced;
 
-	public Upholstery(Boolean isPlaced) {
+	public Upholstery() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {

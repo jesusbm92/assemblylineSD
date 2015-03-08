@@ -4,9 +4,9 @@ public class Wheel implements Command{
 
 	private Boolean isPlaced;
 
-	public Wheel(Boolean isPlaced) {
+	public Wheel() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {

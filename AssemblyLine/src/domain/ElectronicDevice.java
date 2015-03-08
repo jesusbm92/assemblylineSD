@@ -4,9 +4,9 @@ public class ElectronicDevice implements Command{
 	
 	private Boolean isPlaced;
 
-	public ElectronicDevice(Boolean isPlaced) {
+	public ElectronicDevice() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {
