@@ -1,20 +1,20 @@
 package domain;
 
-public class Chasis implements Command {
+public class Chasis extends Component implements Command {
 
-	private Boolean isPlaced;
+	private String model;
 
-	public Chasis() {
+	public Chasis(String model) {
 		super();
-		this.isPlaced = false;
+		this.model = model;
 	}
 
-	public Boolean getIsPlaced() {
-		return isPlaced;
+	public String getModel() {
+		return model;
 	}
 
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 	@Override

@@ -3,21 +3,23 @@ package domain;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Wheel implements Command {
-	private Boolean isPlaced;
+public class Wheel extends Component implements Command {
 
-	public Wheel() {
+	// Front left, Front Right, Back Left, Back Right
+	private String kindOfWheel;
+
+	public Wheel(String kindOfWheel) {
 
 		super();
-		this.isPlaced = false;
+		this.kindOfWheel = kindOfWheel;
 	}
 
-	public Boolean getIsPlaced() {
-		return isPlaced;
+	public String getKindOfWheel() {
+		return kindOfWheel;
 	}
 
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
+	public void setKindOfWheel(String kindOfWheel) {
+		this.kindOfWheel = kindOfWheel;
 	}
 
 	@Override
@@ -30,9 +32,9 @@ public class Wheel implements Command {
 		for (Wheel w : l) {
 
 			w.setIsPlaced(true);
-			
+
 		}
-		
+
 		c.setWheels(l);
 
 		// To change for graphic application instead of console output

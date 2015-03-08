@@ -1,20 +1,9 @@
 package domain;
 
-public class Upholstery implements Command {
-
-	private Boolean isPlaced;
+public class Upholstery extends Component implements Command {
 
 	public Upholstery() {
 		super();
-		this.isPlaced = false;
-	}
-
-	public Boolean getIsPlaced() {
-		return isPlaced;
-	}
-
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
 	}
 
 	@Override

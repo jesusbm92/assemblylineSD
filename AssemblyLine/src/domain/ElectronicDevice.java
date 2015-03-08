@@ -1,30 +1,30 @@
 package domain;
 
-public class ElectronicDevice implements Command{
-	
-	private Boolean isPlaced;
+public class ElectronicDevice extends Component implements Command {
 
-	public ElectronicDevice() {
+	private String name;
+
+	public ElectronicDevice(String name) {
 		super();
-		this.isPlaced = false;
+		this.name = name;
 	}
 
-	public Boolean getIsPlaced() {
-		return isPlaced;
+	public String getName() {
+		return name;
 	}
 
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
 	@Override
 	public void setup(Object AssemblyLineItem) {
 		Car c = (Car) AssemblyLineItem;
-		for (ElectronicDevice e: c.getElectronics()){
+		for (ElectronicDevice e : c.getElectronics()) {
 			e.setIsPlaced(true);
 		}
 		// To change for graphic application instead of console output
-		System.out.println("ElectronicDevice placed correctly");	
+		System.out.println("ElectronicDevice placed correctly");
 	}
 
 }

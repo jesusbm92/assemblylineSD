@@ -3,21 +3,22 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sit implements Command {
+public class Sit extends Component implements Command {
 
-	private Boolean isPlaced;
+	// Front Driver, Co-Driver or back sits
+	private String kindOfSit;
 
-	public Sit() {
+	public Sit(String kindOfSit) {
 		super();
-		this.isPlaced = false;
+		this.kindOfSit = kindOfSit;
 	}
 
-	public Boolean getIsPlaced() {
-		return isPlaced;
+	public String getKindOfSit() {
+		return kindOfSit;
 	}
 
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
+	public void setKindOfSit(String kindOfSit) {
+		this.kindOfSit = kindOfSit;
 	}
 
 	@Override

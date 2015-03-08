@@ -1,19 +1,30 @@
 package domain;
 
-public class Engine implements Command{
-	private Boolean isPlaced;
-	
-	public Engine() {
-		// TODO Auto-generated constructor stub
+public class Engine extends Component implements Command {
+
+	private String brand;
+	private Integer horsepower;
+
+	public Engine(String brand, Integer horsepower) {
 		super();
-		this.isPlaced = false;
-	}
-	public Boolean getIsPlaced() {
-		return isPlaced;
+		this.brand = brand;
+		this.horsepower = horsepower;
 	}
 
-	public void setIsPlaced(Boolean isPlaced) {
-		this.isPlaced = isPlaced;
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public Integer getHorsepower() {
+		return horsepower;
+	}
+
+	public void setHorsepower(Integer horsepower) {
+		this.horsepower = horsepower;
 	}
 
 	@Override
