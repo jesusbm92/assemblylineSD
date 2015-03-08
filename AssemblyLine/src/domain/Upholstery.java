@@ -20,9 +20,8 @@ public class Upholstery implements Command {
 	@Override
 	public void setup(Object AssemblyLineItem) {
 		Car c = (Car) AssemblyLineItem;
-		for (Sit s : c.getSits()) {
-			s.setIsPlaced(true);
-		}
+		c.getUph().setIsPlaced(true);
+
 		// To change for graphic application instead of console output
 		System.out.println("Upholstery placed correctly");
 	}
