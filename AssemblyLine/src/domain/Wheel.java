@@ -24,10 +24,15 @@ public class Wheel implements Command {
 		List<Wheel> l= new ArrayList<Wheel>();
 		
 		l=c.getWheels();
-		for (Wheel whell : l) {
-			whell.setIsPlaced(true);
-		}
+
 		
+		for (int i = 0; i < l.size(); i++) {
+			Wheel w = new Wheel();
+			w=l.get(i);
+			w.isPlaced=true;
+			l.set(i, w);
+		}
+		c.setWheels(l);
 		
 		// To change for graphic application instead of console output
 		System.out.println("Wheels placed correctly");
