@@ -1,7 +1,10 @@
 package domain;
 
-public class Glass implements Command{
-	
+import java.util.ArrayList;
+import java.util.List;
+
+public class Glass implements Command {
+
 	private Boolean isPlaced;
 
 	public Glass(Boolean isPlaced) {
@@ -16,15 +19,23 @@ public class Glass implements Command{
 	public void setIsPlaced(Boolean isPlaced) {
 		this.isPlaced = isPlaced;
 	}
-	
+
 	@Override
 	public void setup(Object AssemblyLineItem) {
 		Car c = (Car) AssemblyLineItem;
-		for (Glass g: c.getGlasses()){
+		List<Glass> l = new ArrayList<Glass>();
+
+		l = c.getGlasses();
+
+		for (Glass g : l) {
+
 			g.setIsPlaced(true);
+
 		}
+
+		c.setGlasses(l);
 		// To change for graphic application instead of console output
-		System.out.println("Glass placed correctly");	
+		System.out.println("Glass placed correctly");
 	}
 
 }

@@ -1,6 +1,9 @@
 package domain;
 
-public class Sit implements Command{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sit implements Command {
 
 	private Boolean isPlaced;
 
@@ -16,16 +19,23 @@ public class Sit implements Command{
 	public void setIsPlaced(Boolean isPlaced) {
 		this.isPlaced = isPlaced;
 	}
-	
+
 	@Override
 	public void setup(Object AssemblyLineItem) {
 		Car c = (Car) AssemblyLineItem;
-		for (Sit s: c.getSits()){
+		List<Sit> l = new ArrayList<Sit>();
+
+		l = c.getSits();
+
+		for (Sit s : l) {
+
 			s.setIsPlaced(true);
+
 		}
+
+		c.setSits(l);
 		// To change for graphic application instead of console output
-		System.out.println("Sits placed correctly");	
+		System.out.println("Sits placed correctly");
 	}
-	
 
 }
