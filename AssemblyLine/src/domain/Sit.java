@@ -7,9 +7,9 @@ public class Sit implements Command {
 
 	private Boolean isPlaced;
 
-	public Sit(Boolean isPlaced) {
+	public Sit() {
 		super();
-		this.isPlaced = isPlaced;
+		this.isPlaced = false;
 	}
 
 	public Boolean getIsPlaced() {

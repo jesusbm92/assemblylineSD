@@ -7,7 +7,7 @@ public class Wheel implements Command {
 	private Boolean isPlaced;
 
 	public Wheel() {
-		// TODO Auto-generated constructor stub
+
 		super();
 		this.isPlaced = false;
 	}
