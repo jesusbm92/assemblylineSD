@@ -1,14 +1,13 @@
 package domain;
 
-public class Chasis implements Command {
-
+public class Engine implements Command{
 	private Boolean isPlaced;
-
-	public Chasis() {
+	
+	public Engine() {
+		// TODO Auto-generated constructor stub
 		super();
 		this.isPlaced = false;
 	}
-
 	public Boolean getIsPlaced() {
 		return isPlaced;
 	}
@@ -20,9 +19,9 @@ public class Chasis implements Command {
 	@Override
 	public void setup(Object AssemblyLineItem) {
 		Car c = (Car) AssemblyLineItem;
-		c.getChasis().setIsPlaced(true);
+		c.getEngine().setIsPlaced(true);
 		// To change for graphic application instead of console output
-		System.out.println("Chasis placed correctly");
+		System.out.println("Engine placed correctly");
 	}
 
 }
