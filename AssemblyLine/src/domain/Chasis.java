@@ -8,6 +8,10 @@ public class Chasis extends Component implements Command {
 		super();
 		this.model = model;
 	}
+	
+	public Chasis() {
+		super();
+	}
 
 	public String getModel() {
 		return model;

@@ -9,6 +9,10 @@ public class ElectronicDevice extends Component implements Command {
 		this.name = name;
 	}
 
+	public ElectronicDevice() {
+		super();
+	}
+
 	public String getName() {
 		return name;
 	}

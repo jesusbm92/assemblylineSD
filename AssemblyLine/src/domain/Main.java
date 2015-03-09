@@ -89,7 +89,6 @@ public class Main {
 	}
 	static void putUpholstery(Car c){
 		Upholstery uphAssambled = new Upholstery();
-		uphAssambled.setType("Red");
 		c.setUph(uphAssambled);
 		c.getUph().setup(c);
 		

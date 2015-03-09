@@ -13,6 +13,10 @@ public class Glass extends Component implements Command {
 		this.kindOfGlass = kindOfGlass;
 	}
 
+	public Glass() {
+		super();
+	}
+
 	public String getKindOfGlass() {
 		return kindOfGlass;
 	}

@@ -11,6 +11,10 @@ public class Engine extends Component implements Command {
 		this.horsepower = horsepower;
 	}
 
+	public Engine() {
+		super();
+	}
+
 	public String getBrand() {
 		return brand;
 	}

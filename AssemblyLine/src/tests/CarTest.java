@@ -1,4 +1,4 @@
-package domain;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import domain.*;
 
 public class CarTest {
 

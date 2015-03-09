@@ -13,6 +13,10 @@ public class Sit extends Component implements Command {
 		this.kindOfSit = kindOfSit;
 	}
 
+	public Sit() {
+		super();
+	}
+
 	public String getKindOfSit() {
 		return kindOfSit;
 	}

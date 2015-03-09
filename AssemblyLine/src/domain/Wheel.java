@@ -14,6 +14,10 @@ public class Wheel extends Component implements Command {
 		this.kindOfWheel = kindOfWheel;
 	}
 
+	public Wheel() {
+		super();
+	}
+
 	public String getKindOfWheel() {
 		return kindOfWheel;
 	}
