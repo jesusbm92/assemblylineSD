@@ -16,7 +16,7 @@ public class AssemblyStation {
 	}
 	public void placeComponent(Product p){
 		if (c1.stock()<1){
-			warehouse.generateComponents(c1, 1)
+			warehouse.generateComponents(c1, 1);
 		}
 		p.addComponent(c1);
 		
