@@ -16,7 +16,7 @@ public class Product implements Drawable{
 		//just draw all components next to each other
 		int offset=0;
 		for (Component c : components) {
-			graphics.drawimage(c.draw(width/components.size(), 0), null, offset, 0);
+			graphics.drawImage(c.draw(width/components.size(), 0), null, offset, 0);
 			offset += width/components.size();
 		}
 		return img;
