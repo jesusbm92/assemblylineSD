@@ -1,9 +1,10 @@
 package domain;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssemblyLine {
+public class AssemblyLine implements Drawable{
 	
 	private List<AssemblyStation> orderedStations;
 	private List<Product> producedProducts;
@@ -45,6 +46,12 @@ public class AssemblyLine {
 
 		return p;
 		
+	}
+
+	@Override
+	public BufferedImage draw(int width, int height) {
+		BufferedImage img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+		return img;
 	}
 
 }
