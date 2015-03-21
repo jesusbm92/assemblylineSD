@@ -1,8 +1,7 @@
 package domain;
 
-import java.awt.image.BufferedImage;
 
-public class Component implements Drawable{
+abstract class Component implements Drawable{
 
 	private Boolean isPlaced;
 	private int stock;
@@ -28,12 +27,6 @@ public class Component implements Drawable{
 	public int getStock(){
 		return stock;
 	
-	}
-
-	@Override
-	public BufferedImage draw(int width, int height) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
