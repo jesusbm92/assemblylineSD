@@ -66,46 +66,50 @@ public class StationsDisplay extends JPanel
 	
 	public void paintConstruction(int i)
 	{
-        System.out.println("C" + i);
+        System.out.println("Production of Station " + i);
         
         int Position = 0;
+        JLabel lblM2 = new JLabel();
         while (Position < 170)
         {
-
-            JLabel lblM2 = new JLabel();
             lblM2.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\pic\\First.png"));
             grid.add(lblM2);
             lblM2.setLocation(Position, 10 + (i-1)*50);
             lblM2.setSize(40, 40);
-        	
             
-			Graphics g =  this.frame.getGraphics();
-			System.out.println(g != null);
-			g.setColor(Color.WHITE);
-			g.fillRect(0,0,800,600);
-        	
+			Graphics g =  this.grid.getGraphics();
+        	grid.paint(g);
         	//Wait to see the movement
         	for (int j = 0 ; j < 5000 ; j++)
         	{for (int k = 0 ; k < 10000 ; k++){}}
-        	
-        	JLabel lblM3 = new JLabel();
-            lblM3.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\pic\\blanc.png"));
+
+        	Position++;
+        }
+        grid.add(lblM2);
+        for (int j = 0 ; j < 500000 ; j++)
+    	{for (int k = 0 ; k < 10000 ; k++){}}
+        grid.remove(lblM2);
+        
+        
+        
+        JLabel lblM3 = new JLabel();
+        while (Position > 0)
+        {
+        	lblM3.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\pic\\S0" + i + ".png"));
+            
             grid.add(lblM3);
             lblM3.setLocation(Position, 10 + (i-1)*50);
             lblM3.setSize(40, 40);
-        	Position++;
-            System.out.println(Position);
-        }
-        
+            
+			Graphics g =  this.grid.getGraphics();
+        	grid.paint(g);
+        	//Wait to see the movement
+        	for (int j = 0 ; j < 5000 ; j++)
+        	{for (int k = 0 ; k < 10000 ; k++){}}
 
-        /*JLabel lblM3 = new JLabel();
-        lblM3.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\pic\\S0" + i + ".png"));
-        grid.add(lblM3);
-        lblM3.setLocation(0, 10 + (i-1)*50);
-        lblM3.setSize(40, 40);*/
-        
+        	Position--;
+        }
 	}
-	
 
 	
     public static void main(String[] args)
