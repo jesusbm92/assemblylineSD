@@ -14,8 +14,6 @@ public class Main {
 		as1.setWarehouse(wh);
 		as2.setWarehouse(wh);
 		as3.setWarehouse(wh);
-		Product product = new Product();
-		al.setProduct(product);
 		
 		al.setNextAssemblyStation(as1);
 		al.setNextAssemblyStation(as2);

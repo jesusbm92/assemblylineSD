@@ -63,20 +63,19 @@ public class AssemblyLine implements Drawable {
 		int gridSize = width/(getAssemblyStationCount() + 2);
 		
 		// draw empty product
-		if (productPosition == -1) {
-			if (product != null)
+		if (product == null)
+			graphics.drawString("need new input", 5, height/2 + height/4);
+		else
+			if (productPosition == -1) 
 				graphics.drawString("ready to build", 5, height/2 + height/4);
-			else
-				graphics.drawString("need new input", 5, height/2 + height/4);
-		}
-
+		
 		// draw stations
 		for (int stationIndex = 0; stationIndex < getAssemblyStationCount(); stationIndex++) {
 			graphics.drawImage(orderedStations.get(stationIndex).draw(gridSize, height/2), null,
 					(stationIndex+1) * gridSize, 0);
 			
 			// draw product
-			if (productPosition == stationIndex) {
+			if ((product != null) && (productPosition == stationIndex)) {
 				graphics.drawImage(product.draw(gridSize, height/2), null, 
 						(stationIndex+1) * gridSize, height/2);
 			}
