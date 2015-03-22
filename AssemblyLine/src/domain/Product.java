@@ -21,7 +21,7 @@ public class Product implements Drawable {
 
 		// just draw all components next to each other
 		int offset = 0;
-		int dimension = Integer.min(width / components.size(), height);
+		int dimension = Math.min(width / components.size(), height);
 		for (Component c : components) {
 			graphics.drawImage(c.draw(dimension, dimension), null,
 					offset, 0);
