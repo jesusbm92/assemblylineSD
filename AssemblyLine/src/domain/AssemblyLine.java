@@ -82,12 +82,11 @@ public class AssemblyLine implements Drawable {
 		}
 		
 		// draw finished products
-		int offset = 0;
-		for (Product p:producedProducts) {
-			graphics.drawImage(p.draw(gridSize/10, gridSize/10), null, 
-					gridSize * (getAssemblyStationCount() + 1) + offset, 
-					height/2);
-			offset += gridSize/10;
+		int gridCells = 5;
+		for (int productIndex = 0; productIndex < producedProducts.size(); productIndex++) {
+			graphics.drawImage(producedProducts.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
+					gridSize * (getAssemblyStationCount() + 1) + gridSize/gridCells*(productIndex%gridCells), 
+					height/2 + gridSize/gridCells * (int)(productIndex/gridCells));
 		}
 		
 		return img;
