@@ -7,12 +7,9 @@ import java.util.List;
 
 public class Product implements Drawable {
 	
-	private AssemblyLine assemblyLine;
-
 	private List<Component> components;
 
 	public Product() {
-		super();
 		components = new ArrayList<Component>();
 	}
 
@@ -24,16 +21,13 @@ public class Product implements Drawable {
 
 		// just draw all components next to each other
 		int offset = 0;
+		int dimension = Integer.min(width / components.size(), height);
 		for (Component c : components) {
-			graphics.drawImage(c.draw(width / components.size(), 0), null,
+			graphics.drawImage(c.draw(dimension, dimension), null,
 					offset, 0);
 			offset += width / components.size();
 		}
 		return img;
-	}
-	
-	public void setAssemblyLine(AssemblyLine al){
-		this.assemblyLine=al;
 	}
 
 	public Boolean addComponent(Component c) {

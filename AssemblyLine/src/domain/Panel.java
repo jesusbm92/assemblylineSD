@@ -1,10 +1,8 @@
 package domain;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,39 +10,43 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Panel extends JPanel {
+public class Panel extends JPanel{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4729136638637503204L;
-
 	private static final int HEIGHT = 400;
-
 	private static final int WIDTH = 700;
 
 	private JButton nextStep;
+	private JButton newProduct;
+	
+	private AssemblyLine assemblyLine;
 
-	private NextStepButtonHandler nextStepButtonHandler;
-
-	public Panel(List<AssemblyStation> order, Product p) {
+	public Panel(AssemblyLine al) {
+		
+		assemblyLine = al;
 
 		JFrame frame = new JFrame("Assembly Line");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setBackground(Color.BLACK);
-		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.BLACK);
-		frame.add(this);
 		this.setVisible(true);
+		frame.add(this);
 
 		nextStep = new JButton("Place next component");
-		nextStepButtonHandler = new NextStepButtonHandler(order, p, this);
-		nextStep.addActionListener(nextStepButtonHandler);
+		nextStep.addActionListener(new NextStepListener(this));
 		nextStep.setVisible(true);
-
 		this.add(nextStep);
+		
+		newProduct = new JButton("New input product");
+		newProduct.addActionListener(new NewProductListener(this));
+		newProduct.setVisible(true);
+		this.add(newProduct);
 
+		frame.setVisible(true);
 	}
 
 	public void paintComponent(Graphics g, BufferedImage input) {
@@ -53,5 +55,16 @@ public class Panel extends JPanel {
 		this.updateUI();
 
 	}
+
+	@Override
+    public void paintComponent(java.awt.Graphics g) {
+        super.paintComponent(g);
+        ((java.awt.Graphics2D) g).drawImage(assemblyLine.draw(this.getWidth(), 200), null, 0, 100);
+    }
+
+	public AssemblyLine getAssemblyLine() {
+		return assemblyLine;
+	}
+	
 
 }

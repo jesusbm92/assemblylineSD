@@ -9,16 +9,20 @@ public class Main {
 		Rectangle rect = new Rectangle();
 		AssemblyStation as1 = new AssemblyStation(circle);
 		AssemblyStation as2 = new AssemblyStation(rect);
+		AssemblyStation as3 = new AssemblyStation(circle);
 		Warehouse wh = new Warehouse();
-		Product product = new Product();
-		product.addComponent(circle);
-		product.addComponent(rect);
-		product.setAssemblyLine(al);
 		as1.setWarehouse(wh);
 		as2.setWarehouse(wh);
+		as3.setWarehouse(wh);
+		Product product = new Product();
+		al.setProduct(product);
+		
 		al.setNextAssemblyStation(as1);
 		al.setNextAssemblyStation(as2);
-		Panel p = new Panel(al.getOrder(), product);
+		al.setNextAssemblyStation(as3);
+		
+		Panel p = new Panel(al);
+		p.repaint();
 
 	}
 
