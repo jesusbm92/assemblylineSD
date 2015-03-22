@@ -10,7 +10,7 @@ public class Circle extends Component {
 	public BufferedImage draw(int width, int height) {
 		BufferedImage img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
         Graphics2D g = img.createGraphics();
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.fillOval(0, 0, width, height);
 		return img;
 	}

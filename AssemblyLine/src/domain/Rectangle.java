@@ -11,9 +11,9 @@ public class Rectangle extends Component {
 		// TODO Auto-generated method stub
 		BufferedImage img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
         Graphics2D g = img.createGraphics();
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.fillRect(0, 0, width, height);
-		return null;
+		return img;
 	}
 
 }
