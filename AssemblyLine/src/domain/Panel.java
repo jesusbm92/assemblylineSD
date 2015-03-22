@@ -21,6 +21,7 @@ public class Panel extends JPanel{
 
 	private JButton nextStep;
 	private JButton newProduct;
+	private JButton retrieveProduct;
 	
 	private AssemblyLine assemblyLine;
 
@@ -36,15 +37,20 @@ public class Panel extends JPanel{
 		this.setVisible(true);
 		frame.add(this);
 
+		newProduct = new JButton("New input product");
+		newProduct.addActionListener(new NewProductListener(this));
+		newProduct.setVisible(true);
+		this.add(newProduct);
+		
 		nextStep = new JButton("Place next component");
 		nextStep.addActionListener(new NextStepListener(this));
 		nextStep.setVisible(true);
 		this.add(nextStep);
 		
-		newProduct = new JButton("New input product");
-		newProduct.addActionListener(new NewProductListener(this));
-		newProduct.setVisible(true);
-		this.add(newProduct);
+		retrieveProduct = new JButton("Retrieve finished product");
+		retrieveProduct.addActionListener(new RetrieveProductListener(this));
+		retrieveProduct.setVisible(true);
+		this.add(retrieveProduct);
 
 		frame.setVisible(true);
 	}
