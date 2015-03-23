@@ -11,9 +11,7 @@ public class AssemblyStation implements Drawable {
 	// private int StockInStation;
 
 	public AssemblyStation(Component c) {
-		// TODO Auto-generated constructor stub
 		component = c;
-
 	}
 
 	public Boolean placeComponent(Product p) {
@@ -31,7 +29,6 @@ public class AssemblyStation implements Drawable {
 
 	@Override
 	public BufferedImage draw(int width, int height) {
-		// TODO Auto-generated method stub
 		BufferedImage img = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = img.createGraphics();
