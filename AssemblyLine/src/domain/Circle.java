@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
-public class Circle extends Component {
+public class Circle extends Figure {
 
 	@Override
 	public BufferedImage draw(int width, int height) {
