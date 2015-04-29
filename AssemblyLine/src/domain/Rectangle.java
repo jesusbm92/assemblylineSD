@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Rectangle extends Component {
+public class Rectangle extends Figure {
 
 	@Override
 	public BufferedImage draw(int width, int height) {
