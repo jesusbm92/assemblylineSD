@@ -21,6 +21,13 @@ public class AssemblyLine implements Drawable {
 	public void setNextAssemblyStation(AssemblyStation station) {
 		orderedStations.add(station);
 	}
+	
+	public void addAssemblyStation(String name)
+	{
+		//TODO, designed and used by Rules
+		//this.setNextAssemblyStation(new AssemblyStation(Component?));
+		//look for the name in the list of component, and create the station
+	}
 
 	public void setProduct(Product p) {
 		product = p;
