@@ -7,28 +7,33 @@ import java.util.List;
 
 public class AssemblyLine {
 
-	private List<AssemblyStation> orderedStations;
+	//private List<AssemblyStation> orderedStations;
 	private List<Component> producedComponents;
+	private ListOfAssemblyStations orderedAssemblyStations;
 	
 	private int componentPosition;
 	private Component component;
 
 	public AssemblyLine() {
-		orderedStations = new ArrayList<AssemblyStation>();
 		producedComponents = new ArrayList<Component>();
 	}
+	
+	public void setAssemblyStationOrderList(ListOfAssemblyStations stationList){
+		orderedAssemblyStations. = stationList;
+	}
 
+	/* 2015.05.01 Katrina - Rules do the changes in order of stations
 	public void setNextAssemblyStation(AssemblyStation station) {
 		orderedStations.add(station);
 	}
-	
+
 	public void addAssemblyStation(String name)
 	{
 		//TODO, designed and used by Rules
 		//this.setNextAssemblyStation(new AssemblyStation(Component?));
 		//look for the name in the list of component, and create the station
 	}
-
+	 2015.05.01 Katrina */
 	public void setProduct(Component p) {
 		component = p;
 		componentPosition = -1;
