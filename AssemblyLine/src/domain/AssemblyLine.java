@@ -5,17 +5,17 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssemblyLine implements Drawable {
+public class AssemblyLine {
 
 	private List<AssemblyStation> orderedStations;
-	private List<Product> producedProducts;
+	private List<Component> producedComponents;
 	
-	private int productPosition;
-	private Product product;
+	private int componentPosition;
+	private Component component;
 
 	public AssemblyLine() {
 		orderedStations = new ArrayList<AssemblyStation>();
-		producedProducts = new ArrayList<Product>();
+		producedComponents = new ArrayList<Component>();
 	}
 
 	public void setNextAssemblyStation(AssemblyStation station) {
@@ -29,9 +29,9 @@ public class AssemblyLine implements Drawable {
 		//look for the name in the list of component, and create the station
 	}
 
-	public void setProduct(Product p) {
-		product = p;
-		productPosition = -1;
+	public void setProduct(Component p) {
+		component = p;
+		componentPosition = -1;
 	}
 
 	public int getAssemblyStationCount() {
@@ -39,29 +39,28 @@ public class AssemblyLine implements Drawable {
 	}
 
 	public void advanceSimulationOneStep() {
-		if (product == null)
+		if (component == null)
 			return;
 		
-		productPosition++;
+		componentPosition++;
 		
-		if (productPosition == getAssemblyStationCount()) {
-			producedProducts.add(product);
+		if (componentPosition == getAssemblyStationCount()) {
+			producedComponents.add(component);
 			setProduct(null);
 			return;
 		}
 		
-		orderedStations.get(productPosition).placeComponent(product);
+		orderedStations.get(componentPosition).placeComponent(component);
 	}
 
-	public Product retrieveFinishedProduct() {
-		if (producedProducts.size() == 0)
+	public Component retrieveFinishedProduct() {
+		if (producedComponents.size() == 0)
 			return null;
 		
-		return producedProducts.remove(0);
+		return producedComponents.remove(0);
 	}
 
 
-	@Override
 	public BufferedImage draw(int width, int height) {
 		BufferedImage img = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
@@ -70,10 +69,10 @@ public class AssemblyLine implements Drawable {
 		int gridSize = width/(getAssemblyStationCount() + 2);
 		
 		// draw empty product
-		if (product == null)
+		if (component == null)
 			graphics.drawString("need new input", 5, height/2 + height/4);
 		else
-			if (productPosition == -1) 
+			if (componentPosition == -1) 
 				graphics.drawString("ready to build", 5, height/2 + height/4);
 		
 		// draw stations
@@ -82,16 +81,16 @@ public class AssemblyLine implements Drawable {
 					(stationIndex+1) * gridSize, 0);
 			
 			// draw product
-			if ((product != null) && (productPosition == stationIndex)) {
-				graphics.drawImage(product.draw(gridSize, height/2), null, 
+			if ((component != null) && (componentPosition == stationIndex)) {
+				graphics.drawImage(component.draw(gridSize, height/2), null, 
 						(stationIndex+1) * gridSize, height/2);
 			}
 		}
 		
 		// draw finished products
 		int gridCells = 5;
-		for (int productIndex = 0; productIndex < producedProducts.size(); productIndex++) {
-			graphics.drawImage(producedProducts.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
+		for (int productIndex = 0; productIndex < producedComponents.size(); productIndex++) {
+			graphics.drawImage(producedComponents.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
 					gridSize * (getAssemblyStationCount() + 1) + gridSize/gridCells*(productIndex%gridCells), 
 					height/2 + gridSize/gridCells * (int)(productIndex/gridCells));
 		}
