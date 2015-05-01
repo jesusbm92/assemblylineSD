@@ -1,5 +1,5 @@
 package domain;
 
-public class SimpleComponent {
+public class SimpleComponent extends Component{
 
 }

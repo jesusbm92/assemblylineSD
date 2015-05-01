@@ -1,7 +1,7 @@
 package domain;
 
 
-abstract class Component implements Drawable{
+abstract class Component{
 
 	private int stock;
 
