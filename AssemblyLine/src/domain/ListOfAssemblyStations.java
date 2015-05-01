@@ -28,4 +28,11 @@ public class ListOfAssemblyStations {
 			return orderedStations.get(lastStation);
 		}
 	}
+	public int length(){
+		return orderedStations.size();
+	}
+	
+	public AssemblyStation get(int i){
+		return orderedStations.get(i);
+	}
 }
