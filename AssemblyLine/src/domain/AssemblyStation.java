@@ -6,25 +6,25 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class AssemblyStation  {
-	private Component component;
+	private SimpleComponent component;
 	private Warehouse warehouse;
 	private Figure F;
 
 	// private int StockInStation;
 
-	public AssemblyStation(Component c) {
+	public AssemblyStation(SimpleComponent c) {
 		component = c;
 		F= new Rectangle();
 		
 	}
-	public void AddComponent(Component c) {
+	public void AddComponent(SimpleComponent c) {
 		component = c;
 	}
 	public Boolean placeComponent(ComposedComponent p) {
 		if (component.getStock() < 1) {
 			warehouse.generateComponents((SimpleComponent) component, 1);
 		}
-		p.addComponent(component);
+		p.add(component);
 		return true;
 	}
 
@@ -46,11 +46,11 @@ public class AssemblyStation  {
 		//graphics.drawRect(0, 0, width - 1, height - 1);
 		
 		
-		graphics.drawImage(F.draw(width - 1, height - 1),null,0,0);
+		//graphics.drawImage(F.draw(width - 1, height - 1),null,0,0);
 				
 				
 		graphics.drawString("Component:  ", 5, height/3);
-		graphics.drawImage(component.draw(metrics.getHeight() - 1, metrics.getHeight() - 1), null,
+		graphics.drawImage(component.draw(/*metrics.getHeight() - 1, metrics.getHeight() - 1*/), null,
 				5 + metrics.stringWidth("Component:  "), height/3 - metrics.getHeight() + 1);
 		graphics.drawString("Stock:  " + String.valueOf(component.getStock()), 5, height/3 * 2);
 		

@@ -13,7 +13,7 @@ public class NewProductListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		panel.getAssemblyLine().setProduct(new Product());
+		panel.getAssemblyLine().setWorkpiece(new ComposedComponent());
 		panel.repaint();
 	}
 

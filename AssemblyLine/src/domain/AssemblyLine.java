@@ -8,18 +8,18 @@ import java.util.List;
 public class AssemblyLine {
 
 	//private List<AssemblyStation> orderedStations;
-	private List<Component> producedComponents;
+	private List<ComposedComponent> finishedWorkpieces;
 	private ListOfAssemblyStations orderedAssemblyStations;
 	
 	private int componentPosition;
-	private Component component;
+	private ComposedComponent workpiece;
 
 	public AssemblyLine() {
-		producedComponents = new ArrayList<Component>();
+		finishedWorkpieces = new ArrayList<ComposedComponent>();
 	}
 	
 	public void setAssemblyStationOrderList(ListOfAssemblyStations stationList){
-		orderedAssemblyStations. = stationList;
+		//orderedAssemblyStations. = stationList;
 	}
 
 	/* 2015.05.01 Katrina - Rules do the changes in order of stations
@@ -34,35 +34,35 @@ public class AssemblyLine {
 		//look for the name in the list of component, and create the station
 	}
 	 2015.05.01 Katrina */
-	public void setProduct(Component p) {
-		component = p;
+	public void setWorkpiece(ComposedComponent p) {
+		workpiece = p;
 		componentPosition = -1;
 	}
 
 	public int getAssemblyStationCount() {
-		return orderedStations.size();
+		return orderedAssemblyStations.length();
 	}
 
 	public void advanceSimulationOneStep() {
-		if (component == null)
+		if (workpiece == null)
 			return;
 		
 		componentPosition++;
 		
 		if (componentPosition == getAssemblyStationCount()) {
-			producedComponents.add(component);
-			setProduct(null);
+			finishedWorkpieces.add(workpiece);
+			setWorkpiece(null);
 			return;
 		}
 		
-		orderedStations.get(componentPosition).placeComponent(component);
+		orderedAssemblyStations.get(componentPosition).placeComponent(workpiece);
 	}
 
 	public Component retrieveFinishedProduct() {
-		if (producedComponents.size() == 0)
+		if (finishedWorkpieces.size() == 0)
 			return null;
 		
-		return producedComponents.remove(0);
+		return finishedWorkpieces.remove(0);
 	}
 
 
@@ -74,7 +74,7 @@ public class AssemblyLine {
 		int gridSize = width/(getAssemblyStationCount() + 2);
 		
 		// draw empty product
-		if (component == null)
+		if (workpiece == null)
 			graphics.drawString("need new input", 5, height/2 + height/4);
 		else
 			if (componentPosition == -1) 
@@ -82,20 +82,20 @@ public class AssemblyLine {
 		
 		// draw stations
 		for (int stationIndex = 0; stationIndex < getAssemblyStationCount(); stationIndex++) {
-			graphics.drawImage(orderedStations.get(stationIndex).draw(gridSize, height/2), null,
+			graphics.drawImage(orderedAssemblyStations.get(stationIndex).draw(gridSize, height/2), null,
 					(stationIndex+1) * gridSize, 0);
 			
 			// draw product
-			if ((component != null) && (componentPosition == stationIndex)) {
-				graphics.drawImage(component.draw(gridSize, height/2), null, 
+			if ((workpiece != null) && (componentPosition == stationIndex)) {
+				graphics.drawImage(workpiece.draw(), null, 
 						(stationIndex+1) * gridSize, height/2);
 			}
 		}
 		
 		// draw finished products
 		int gridCells = 5;
-		for (int productIndex = 0; productIndex < producedComponents.size(); productIndex++) {
-			graphics.drawImage(producedComponents.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
+		for (int productIndex = 0; productIndex < orderedAssemblyStations.length(); productIndex++) {
+			graphics.drawImage(orderedAssemblyStations.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
 					gridSize * (getAssemblyStationCount() + 1) + gridSize/gridCells*(productIndex%gridCells), 
 					height/2 + gridSize/gridCells * (int)(productIndex/gridCells));
 		}

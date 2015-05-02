@@ -21,9 +21,9 @@ public class Rules {
 		SimpleComponent wheel1 = new SimpleComponent();
 		SimpleComponent wheel2 = new SimpleComponent();
 		SimpleComponent corpus = new SimpleComponent();
-		//wheel1.setFigure(circle1);
-		//wheel2.setFigure(circle2);
-		//corpus.setFigure(rect);
+		wheel1.setFigure(circle1);
+		wheel2.setFigure(circle2);
+		corpus.setFigure(rect);
 		AssemblyStation as1 = new AssemblyStation(wheel1);
 		AssemblyStation as2 = new AssemblyStation(wheel2);
 		AssemblyStation as3 = new AssemblyStation(corpus);

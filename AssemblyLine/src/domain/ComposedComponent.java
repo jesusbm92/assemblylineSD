@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-class CompositeGraphic extends Component {
+class ComposedComponent extends Component {
 	 
     //Collection of child components.
     private List<Component> childComponents = new ArrayList<Component>();
