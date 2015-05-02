@@ -22,7 +22,7 @@ public class AssemblyStation  {
 	}
 	public Boolean placeComponent(ComposedComponent p) {
 		if (component.getStock() < 1) {
-			warehouse.generateComponents(component, 1);
+			warehouse.generateComponents((SimpleComponent) component, 1);
 		}
 		p.addComponent(component);
 		return true;
