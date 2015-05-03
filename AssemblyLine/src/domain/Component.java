@@ -1,21 +1,9 @@
 package domain;
 
+import java.awt.image.BufferedImage;
 
-abstract class Component implements Drawable{
-
-	private int stock;
-
-	public Component() {
-		this.stock = 0;
-	}
+abstract class Component{
 	
-	public void setStock(int n){
-		this.stock = n;
-	}
-	
-	public int getStock(){
-		return stock;
-	
-	}
+	public abstract BufferedImage draw();
 
 }
