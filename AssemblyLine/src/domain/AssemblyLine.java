@@ -7,40 +7,35 @@ import java.util.List;
 
 public class AssemblyLine {
 
-	//private List<AssemblyStation> orderedStations;
 	private List<ComposedComponent> finishedWorkpieces;
-	private ListOfAssemblyStations orderedAssemblyStations;
+	
+	private List<AssemblyStation> stations;
+	private Rules rules;
 	
 	private int componentPosition;
 	private ComposedComponent workpiece;
 
-	public AssemblyLine() {
+	public AssemblyLine(Rules rules) {
 		finishedWorkpieces = new ArrayList<ComposedComponent>();
+		stations = new ArrayList<AssemblyStation>();
+		this.rules = rules;
+		
+		for (int i=0; i<rules.size(); i++) {
+			AssemblyStation station = new AssemblyStation(rules.getRuleAt(i));
+			stations.add(station);
+		}
+		
+		
 	}
 	
-	public void setAssemblyStationOrderList(ListOfAssemblyStations stationList){
-		//orderedAssemblyStations. = stationList;
-	}
 
-	/* 2015.05.01 Katrina - Rules do the changes in order of stations
-	public void setNextAssemblyStation(AssemblyStation station) {
-		orderedStations.add(station);
-	}
-
-	public void addAssemblyStation(String name)
-	{
-		//TODO, designed and used by Rules
-		//this.setNextAssemblyStation(new AssemblyStation(Component?));
-		//look for the name in the list of component, and create the station
-	}
-	 2015.05.01 Katrina */
 	public void setWorkpiece(ComposedComponent p) {
 		workpiece = p;
 		componentPosition = -1;
 	}
 
 	public int getAssemblyStationCount() {
-		return orderedAssemblyStations.length();
+		return stations.size();
 	}
 
 	public void advanceSimulationOneStep() {
@@ -50,12 +45,13 @@ public class AssemblyLine {
 		componentPosition++;
 		
 		if (componentPosition == getAssemblyStationCount()) {
+			rules.checkProduct(workpiece);
 			finishedWorkpieces.add(workpiece);
 			setWorkpiece(null);
 			return;
 		}
 		
-		orderedAssemblyStations.get(componentPosition).placeComponent(workpiece);
+		stations.get(componentPosition).placeComponent(workpiece);
 	}
 
 	public Component retrieveFinishedProduct() {
@@ -82,7 +78,7 @@ public class AssemblyLine {
 		
 		// draw stations
 		for (int stationIndex = 0; stationIndex < getAssemblyStationCount(); stationIndex++) {
-			graphics.drawImage(orderedAssemblyStations.get(stationIndex).draw(gridSize, height/2), null,
+			graphics.drawImage(stations.get(stationIndex).draw(gridSize, height/2), null,
 					(stationIndex+1) * gridSize, 0);
 			
 			// draw product
@@ -94,8 +90,8 @@ public class AssemblyLine {
 		
 		// draw finished products
 		int gridCells = 5;
-		for (int productIndex = 0; productIndex < orderedAssemblyStations.length(); productIndex++) {
-			graphics.drawImage(orderedAssemblyStations.get(productIndex).draw(gridSize/gridCells, gridSize/gridCells), null, 
+		for (int productIndex = 0; productIndex < finishedWorkpieces.size(); productIndex++) {
+			graphics.drawImage(finishedWorkpieces.get(productIndex).draw(), null, 
 					gridSize * (getAssemblyStationCount() + 1) + gridSize/gridCells*(productIndex%gridCells), 
 					height/2 + gridSize/gridCells * (int)(productIndex/gridCells));
 		}

@@ -42,4 +42,9 @@ class ComposedComponent extends Component {
     public void remove(Component component) {
     	childComponents.remove(component);
     }
+    
+    //retrieve children
+    public List<Component> retrieveComponents() {
+    	return childComponents;
+    }
 }

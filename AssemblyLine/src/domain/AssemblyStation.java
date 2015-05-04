@@ -7,29 +7,28 @@ import java.awt.image.BufferedImage;
 
 public class AssemblyStation  {
 	private SimpleComponent component;
-	private Warehouse warehouse;
-	private Figure F;
+	
+	
 
 	// private int StockInStation;
 
 	public AssemblyStation(SimpleComponent c) {
 		component = c;
-		F= new Rectangle();
+		new Rectangle();
 		
 	}
 	public void AddComponent(SimpleComponent c) {
 		component = c;
 	}
 	public Boolean placeComponent(ComposedComponent p) {
-		if (component.getStock() < 1) {
-			warehouse.generateComponents((SimpleComponent) component, 1);
-		}
+//		if (component.getStock() < 1) {
+//			warehouse.generateComponents((SimpleComponent) component, 1);
+//		}
 		p.add(component);
 		return true;
 	}
 
 	public void setWarehouse(Warehouse w) {
-		this.warehouse = w;
 
 	}
 

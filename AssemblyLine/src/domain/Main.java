@@ -1,26 +1,31 @@
 package domain;
 
+import java.awt.Color;
+
 public class Main {
 
 	public static void main(String[] args) {
 
-		AssemblyLine al = new AssemblyLine();
-//		Circle circle1 = new Circle();
-//		Circle circle2 = new Circle();
-//		Rectangle rect = new Rectangle();
-//		AssemblyStation as1 = new AssemblyStation(circle1);
-//		AssemblyStation as2 = new AssemblyStation(rect);
-//		AssemblyStation as3 = new AssemblyStation(circle2);
-//		Warehouse wh = new Warehouse();
-//		as1.setWarehouse(wh);
-//		as2.setWarehouse(wh);
-//		as3.setWarehouse(wh);
-//		
-//		al.setNextAssemblyStation(as1);
-//		al.setNextAssemblyStation(as2);
-//		al.setNextAssemblyStation(as3);
+		Rules rules = new Rules();
+		Warehouse wh = new Warehouse();
 		
-		Panel p = new Panel(al);
+		Circle circle = new Circle();
+		Rectangle rect = new Rectangle();
+		rect.setColor(Color.RED);
+
+		SimpleComponent wheel = new SimpleComponent(wh);
+		SimpleComponent engine = new SimpleComponent(wh);
+		
+		wheel.setFigure(circle);
+		engine.setFigure(rect);
+
+		rules.addRule(wheel);
+		rules.addRule(engine);
+		rules.addRule(wheel);
+		
+		AssemblyLine assemblyLine = new AssemblyLine(rules);
+		
+		Panel p = new Panel(assemblyLine);
 		p.repaint();
 
 	}

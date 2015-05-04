@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 
 abstract class Figure {
 
-	Color color;
-	int width, height;
+	Color color=Color.GREEN;
+	int width=10, height=10;
 
 	public int getWidth() {
 		return width;
