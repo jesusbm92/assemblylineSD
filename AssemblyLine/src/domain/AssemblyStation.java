@@ -1,23 +1,22 @@
 package domain;
 
-import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class AssemblyStation  {
-	private SimpleComponent component;
+	private Component component;
 	
 	
 
 	// private int StockInStation;
 
-	public AssemblyStation(SimpleComponent c) {
+	public AssemblyStation(Component c) {
 		component = c;
 		new Rectangle();
 		
 	}
-	public void AddComponent(SimpleComponent c) {
+	public void AddComponent(Component c) {
 		component = c;
 	}
 	public Boolean placeComponent(ComposedComponent p) {
@@ -51,7 +50,7 @@ public class AssemblyStation  {
 		graphics.drawString("Component:  ", 5, height/3);
 		graphics.drawImage(component.draw(/*metrics.getHeight() - 1, metrics.getHeight() - 1*/), null,
 				5 + metrics.stringWidth("Component:  "), height/3 - metrics.getHeight() + 1);
-		graphics.drawString("Stock:  " + String.valueOf(component.getStock()), 5, height/3 * 2);
+		//graphics.drawString("Stock:  " + String.valueOf(component.getStock()), 5, height/3 * 2);
 		
 		return img;
 	}
