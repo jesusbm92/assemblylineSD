@@ -37,7 +37,7 @@ public class Panel extends JPanel{
 		this.setVisible(true);
 		frame.add(this);
 
-		newProduct = new JButton("New product");
+		newProduct = new JButton("New input product");
 		newProduct.addActionListener(new NewProductListener(this));
 		newProduct.setVisible(true);
 		this.add(newProduct);
