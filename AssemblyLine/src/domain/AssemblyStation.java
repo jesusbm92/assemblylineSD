@@ -27,9 +27,6 @@ public class AssemblyStation  {
 		return true;
 	}
 
-	public void setWarehouse(Warehouse w) {
-
-	}
 
 	
 	public BufferedImage draw(int width, int height) {

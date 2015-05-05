@@ -32,7 +32,7 @@ class ComposedComponent extends Component {
         
 		return img;
     }
- 
+
     //Adds the component to the composition.
     public void add(Component component) {
     	childComponents.add(component);

@@ -5,11 +5,9 @@ import java.awt.image.BufferedImage;
 public class SimpleComponent extends Component{
 	private int stock;
 	private Figure figure;
-	private Warehouse warehouse;
 
 	public SimpleComponent(Warehouse warehouse) {
 		this.stock = 0;
-		this.warehouse = warehouse;
 	}
 	
 	public void setStock(int n){
