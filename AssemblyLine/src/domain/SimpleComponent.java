@@ -4,14 +4,15 @@ import java.awt.image.BufferedImage;
 
 public class SimpleComponent extends Component{
 	private int stock;
-<<<<<<< HEAD
+
 	private Figure figure;
-=======
+
 	private Warehouse warehouse;
->>>>>>> origin/dev_mergedV3_martin
+
 
 	public SimpleComponent(Warehouse warehouse) {
 		this.stock = 0;
+		this.warehouse = warehouse;
 	}
 	
 	public void setStock(int n){
@@ -22,6 +23,14 @@ public class SimpleComponent extends Component{
 		return stock;
 	}
 
+	public Figure getFigure() {
+		return figure;
+	}
+	
+	public void setFigure(Figure fig) {
+		figure = fig;
+	}
+	
 	@Override
 	public BufferedImage draw() {
 		if (figure == null) {
