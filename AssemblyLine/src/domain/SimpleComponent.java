@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 public class SimpleComponent extends Component{
 	
 	private Figure figure;
+	private EntryComponent entryComponent;
 
 	public SimpleComponent() {
 	}
@@ -25,4 +26,14 @@ public class SimpleComponent extends Component{
 		
 		return figure.draw();
 	}
+
+	public EntryComponent getEntryComponent() {
+		return entryComponent;
+	}
+
+	public void setEntryComponent(EntryComponent entryComponent) {
+		this.entryComponent = entryComponent;
+	}
+	
+	
 }

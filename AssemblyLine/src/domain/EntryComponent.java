@@ -5,10 +5,19 @@ public class EntryComponent {
 	private int stock;
 	private int threshold;
 	private SimpleComponent type;
+	private Double time;
 	
+
 	public EntryComponent(){		
 	}
 	
+	public Double getTime() {
+		return time;
+	}
+	
+	public void setTime(Double time) {
+		this.time = time;
+	}
 	public void requestStock(int n){
 		this.stock = n;
 	}
