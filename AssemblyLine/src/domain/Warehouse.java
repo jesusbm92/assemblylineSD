@@ -1,14 +1,21 @@
 package domain;
 
+import java.util.List;
+
 public class Warehouse {
+	
+	List <EntryComponent> components;
 	
 	public Warehouse() {
 		super();
 	}
 	
-	public void generateComponents(SimpleComponent c, Integer n){
-		//Here we must add the number of components n
-		c.setStock(n);
+	public void addNewComponent(EntryComponent e){
+		components.add(e);
+	}
+	
+	public void removeComponent(EntryComponent e){
+		components.remove(e);
 	}
 	
 
