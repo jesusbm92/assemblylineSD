@@ -19,6 +19,11 @@ public class Rules {
 		rules.add(object);
 	}
 	
+	public void removeRule(SimpleComponent object){
+		rules.remove(object);
+	}
+	
+	
 	public int size() {
 		return rules.size();
 	}
