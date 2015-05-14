@@ -3,26 +3,13 @@ package domain;
 import java.awt.image.BufferedImage;
 
 public class SimpleComponent extends Component{
-	private int stock;
-
+	
 	private Figure figure;
+	private EntryComponent entryComponent;
 
-	private Warehouse warehouse;
-
-
-	public SimpleComponent(Warehouse warehouse) {
-		this.stock = 0;
-		this.warehouse = warehouse;
+	public SimpleComponent() {
 	}
 	
-	public void setStock(int n){
-		this.stock = n;
-	}
-	
-	public int getStock(){
-		return stock;
-	}
-
 	public Figure getFigure() {
 		return figure;
 	}
@@ -30,7 +17,7 @@ public class SimpleComponent extends Component{
 	public void setFigure(Figure fig) {
 		figure = fig;
 	}
-	
+
 	@Override
 	public BufferedImage draw() {
 		if (figure == null) {
@@ -39,4 +26,14 @@ public class SimpleComponent extends Component{
 		
 		return figure.draw();
 	}
+
+	public EntryComponent getEntryComponent() {
+		return entryComponent;
+	}
+
+	public void setEntryComponent(EntryComponent entryComponent) {
+		this.entryComponent = entryComponent;
+	}
+	
+	
 }
