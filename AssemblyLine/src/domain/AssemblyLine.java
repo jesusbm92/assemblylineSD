@@ -75,6 +75,9 @@ public class AssemblyLine {
 		else
 			if (componentPosition == -1) 
 				graphics.drawString("ready to build", 5, height/2 + height/4);
+			else
+				graphics.drawString("Price in moment for processed component is: " + workpiece.getPriceAmount(), 5, height/2 + height/4);
+				
 		
 		// draw stations
 		for (int stationIndex = 0; stationIndex < getAssemblyStationCount(); stationIndex++) {
