@@ -43,11 +43,12 @@ public class Panel extends JPanel {
 		p = this;
 
 		circle = new Circle();
+		circle.setColor(Color.GREEN);
 		Rectangle rect = new Rectangle();
 		rect.setColor(Color.RED);
 
-		wheel = new SimpleComponent(wh);
-		engine = new SimpleComponent(wh);
+		wheel = new SimpleComponent();
+		engine = new SimpleComponent();
 
 		wheel.setFigure(circle);
 		engine.setFigure(rect);
