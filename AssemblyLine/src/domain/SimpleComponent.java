@@ -36,8 +36,8 @@ public class SimpleComponent extends Component{
 		this.entryComponent = entryComponent;
 	}
 	
-	public Price getPrice() {
-		return price;
+	public double getPriceAmount() {
+		return price.retrieveAmount();
 	}
 	
 	public void setPrice(Price p) {

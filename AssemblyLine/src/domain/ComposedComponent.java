@@ -47,4 +47,14 @@ class ComposedComponent extends Component {
     public List<Component> retrieveComponents() {
     	return childComponents;
     }
+    
+    public double getPriceAmount(){
+    	double pr = 0;
+    	
+    	for (int i=0;i<this.childComponents.size();i++){
+    		pr = pr + this.childComponents.get(i).getPriceAmount();	
+    	}
+    	
+    	return pr;
+    }
 }
