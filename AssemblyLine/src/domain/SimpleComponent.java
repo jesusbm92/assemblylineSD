@@ -6,6 +6,7 @@ public class SimpleComponent extends Component{
 	
 	private Figure figure;
 	private EntryComponent entryComponent;
+	private Price price;
 
 	public SimpleComponent() {
 	}
@@ -33,6 +34,14 @@ public class SimpleComponent extends Component{
 
 	public void setEntryComponent(EntryComponent entryComponent) {
 		this.entryComponent = entryComponent;
+	}
+	
+	public Price getPrice() {
+		return price;
+	}
+	
+	public void setPrice(Price p) {
+		this.price = p;
 	}
 	
 	
