@@ -14,6 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import domain.buttonListeners.AddRuleListener;
+import domain.buttonListeners.NewProductListener;
+import domain.buttonListeners.NextStepListener;
+import domain.buttonListeners.RemoveRuleListener;
+import domain.buttonListeners.RetrieveProductListener;
+
 public class Panel extends JPanel {
 
 	/**
@@ -106,37 +112,12 @@ public class Panel extends JPanel {
 		this.add(availableComponents);
 
 		addRule = new JButton("Add");
-		addRule.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				switch (availableComponents.getSelectedItem().toString()) {
-				case "wheel":
-					rules.addRule(wheel);
-					assemblyLine = new AssemblyLine(rules);
-					p.repaint();
-					break;
-				case "engine":
-					rules.addRule(engine);
-					assemblyLine = new AssemblyLine(rules);
-					p.repaint();
-				}
-			}
-		});
+		addRule.addActionListener(new AddRuleListener(this));
 		addRule.setVisible(true);
 		this.add(addRule);
 
 		removeRule = new JButton("Remove");
-		removeRule.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int index = Integer.parseInt(removeRuleInput.getText());
-				if (index >=0 && index < rules.size()) {
-					rules.removeRuleAt(index);
-					assemblyLine = new AssemblyLine(rules);
-					p.repaint();
-				}
-			}
-		});
+		removeRule.addActionListener(new RemoveRuleListener(this));
 		removeRule.setVisible(true);
 		this.add(removeRule);
 		
@@ -167,8 +148,27 @@ public class Panel extends JPanel {
 		return assemblyLine;
 	}
 	
+	public void reloadAssemblyLine() {
+		assemblyLine = new AssemblyLine(rules);
+	}
+	
 	public Rules getRules() {
 		return rules;
+	}
+	
+	public int getToRemoveRuleIndex() {
+		return Integer.parseInt(removeRuleInput.getText());
+	}
+	
+	public SimpleComponent getRuleToAdd() {
+		switch (availableComponents.getSelectedItem().toString()) {
+		case "wheel":
+			return wheel;
+		case "engine":
+			return engine;
+		}
+		
+		return new SimpleComponent();
 	}
 
 }
