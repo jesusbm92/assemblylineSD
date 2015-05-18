@@ -1,10 +1,13 @@
 package domain;
 
 public class Price {
-	private double amount;
+	private double amount = 0;
 	
 	public Price(){
-		amount = 0;
+	}
+	
+	public Price(double amount) {
+		this.amount = amount;
 	}
 	
 	public void setPrice(double amount) {
