@@ -43,15 +43,9 @@ public class Panel extends JPanel {
     private List<SimpleComponent> availableComponents;
 	
 	
-	//hardcoded price but should be changed
-	Price prWheel;
-	Price prEngine;
-	//hardcoded price but should be changed
-	
 	public Panel() {
 
 		rules = new Rules();
-		new Warehouse();
 		
 		availableComponents = new ArrayList<SimpleComponent>();
 
@@ -59,26 +53,25 @@ public class Panel extends JPanel {
 		circle.setColor(Color.GREEN);
 		Rectangle rect = new Rectangle();
 		rect.setColor(Color.RED);
+		Triangle triangle = new Triangle();
+		triangle.setColor(Color.BLUE);
 		
 		SimpleComponent wheel = new SimpleComponent("wheel");
 		SimpleComponent engine = new SimpleComponent("engine");
+		SimpleComponent window = new SimpleComponent("window");
 
 		wheel.setFigure(circle);
 		engine.setFigure(rect);
+		window.setFigure(triangle);
 		
 		availableComponents.add(wheel);
 		availableComponents.add(engine);
+		availableComponents.add(window);
 		
 		//hardcoded price but should be changed
-		
-		prWheel = new Price();
-		prWheel.setPrice(5.2);
-		wheel.setPrice(prWheel);
-		
-		prEngine = new Price();
-		prEngine.setPrice(100);
-		engine.setPrice(prEngine);
-		
+		wheel.setPrice(new Price(5.2));
+		engine.setPrice(new Price(100));
+		window.setPrice(new Price(45));
 		//hardcoded price but should be changed
 
 		assemblyLine = new AssemblyLine(rules);
