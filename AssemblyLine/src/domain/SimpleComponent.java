@@ -4,25 +4,11 @@ import java.awt.image.BufferedImage;
 
 public class SimpleComponent extends Component{
 	
-	private Figure figure;
 	private EntryComponent entryComponent;
 	private Price price;
-	private String name;
 
-	public SimpleComponent(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public Figure getFigure() {
-		return figure;
-	}
-	
-	public void setFigure(Figure fig) {
-		figure = fig;
+	public SimpleComponent(String string) {
+		super(string);
 	}
 
 	@Override
