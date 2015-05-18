@@ -6,11 +6,22 @@ public class EntryComponent {
 	private int threshold;
 	private SimpleComponent type;
 	
-	public EntryComponent(){		
+	public EntryComponent(SimpleComponent type){
+		this.type = type;
 	}
 	
 	public void requestStock(int n){
 		this.stock = n;
+	}
+	
+	public Boolean request(){
+		if (stock <= 1) {
+			return false;
+		}
+		
+		this.stock--;
+	
+		return true;
 	}
 	
 	public int getStock(){

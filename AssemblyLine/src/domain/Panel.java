@@ -33,21 +33,25 @@ public class Panel extends JPanel {
 	private JButton newProduct;
 	private JButton retrieveProduct;
 	private JComboBox<String> availableComponentsBox;
+	private JComboBox<String> stockComponentsBox;
 	private JButton addRule;
 	private JButton removeRule;
 	private JTextField removeRuleInput;
+	private JLabel stockLabel;
 
 
 	private AssemblyLine assemblyLine;
 	private Rules rules;
     private List<SimpleComponent> availableComponents;
+    private List<EntryComponent> stockComponents;
 	
 	
 	public Panel() {
 
 		rules = new Rules();
-		
+
 		availableComponents = new ArrayList<SimpleComponent>();
+		stockComponents = new ArrayList<EntryComponent>();
 
 		Circle circle = new Circle();
 		circle.setColor(Color.GREEN);
@@ -59,6 +63,16 @@ public class Panel extends JPanel {
 		SimpleComponent wheel = new SimpleComponent("wheel");
 		SimpleComponent engine = new SimpleComponent("engine");
 		SimpleComponent window = new SimpleComponent("window");
+		
+		EntryComponent wheelEntry = new EntryComponent(wheel);
+		wheelEntry.requestStock(5);
+		wheel.setEntryComponent(wheelEntry);
+		EntryComponent engineEntry = new EntryComponent(engine);
+		engineEntry.requestStock(5);
+		engine.setEntryComponent(engineEntry);
+		EntryComponent windowEntry = new EntryComponent(window);
+		windowEntry.requestStock(5);
+		window.setEntryComponent(windowEntry);
 
 		wheel.setFigure(circle);
 		engine.setFigure(rect);
@@ -67,6 +81,10 @@ public class Panel extends JPanel {
 		availableComponents.add(wheel);
 		availableComponents.add(engine);
 		availableComponents.add(window);
+
+		stockComponents.add(wheelEntry);
+		stockComponents.add(engineEntry);
+		stockComponents.add(windowEntry);
 		
 		//hardcoded price but should be changed
 		wheel.setPrice(new Price(5.2));
@@ -121,15 +139,20 @@ public class Panel extends JPanel {
 		removeRuleInput.setText("0");
 		removeRuleInput.setVisible(true);
 		this.add(removeRuleInput);
+		
+		stockLabel = new JLabel("Stock: ");
+		stockLabel.setVisible(true);
+		stockLabel.setForeground(Color.WHITE);
+		this.add(stockLabel);
+		
+		stockComponentsBox = new JComboBox<String>();
+		for (EntryComponent component : stockComponents) {
+			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
+		}
+		stockComponentsBox.setVisible(true);
+		this.add(stockComponentsBox);
 
 		frame.setVisible(true);
-	}
-
-	public void paintComponent(Graphics g, BufferedImage input) {
-		JLabel picLabel = new JLabel(new ImageIcon(input));
-		add(picLabel);
-		this.updateUI();
-
 	}
 
 	@Override
@@ -137,6 +160,11 @@ public class Panel extends JPanel {
 		super.paintComponent(g);
 		((java.awt.Graphics2D) g).drawImage(
 				assemblyLine.draw(this.getWidth(), 200), null, 0, 100);
+		
+		stockComponentsBox.removeAllItems();
+		for (EntryComponent component : stockComponents) {
+			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
+		}
 	}
 
 	public AssemblyLine getAssemblyLine() {

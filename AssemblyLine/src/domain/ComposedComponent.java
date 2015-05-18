@@ -38,8 +38,9 @@ public class ComposedComponent extends Component {
     }
 
     //Adds the component to the composition.
-    public void add(Component component) {
+    public void add(SimpleComponent component) {
     	childComponents.add(component);
+    	component.consume();
     }
  
     //Removes the component from the composition.

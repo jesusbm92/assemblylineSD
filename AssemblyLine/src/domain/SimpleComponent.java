@@ -36,5 +36,11 @@ public class SimpleComponent extends Component{
 		this.price = p;
 	}
 	
+	public Boolean consume() {
+		if (entryComponent == null) {
+			return false;
+		}
+		return entryComponent.request();
+	}
 	
 }
