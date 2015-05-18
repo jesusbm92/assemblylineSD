@@ -7,8 +7,14 @@ public class SimpleComponent extends Component{
 	private Figure figure;
 	private EntryComponent entryComponent;
 	private Price price;
+	private String name;
 
-	public SimpleComponent() {
+	public SimpleComponent(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	public Figure getFigure() {

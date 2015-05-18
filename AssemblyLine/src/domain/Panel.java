@@ -2,9 +2,9 @@ package domain;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,19 +32,16 @@ public class Panel extends JPanel {
 	private JButton nextStep;
 	private JButton newProduct;
 	private JButton retrieveProduct;
-	private JComboBox<String> availableComponents;
+	private JComboBox<String> availableComponentsBox;
 	private JButton addRule;
 	private JButton removeRule;
 	private JTextField removeRuleInput;
 
 
 	private AssemblyLine assemblyLine;
-	Rules rules;
-	Circle circle;
-	Warehouse wh;
-	SimpleComponent wheel;
-	SimpleComponent engine;
-	Panel p;
+	private Rules rules;
+    private List<SimpleComponent> availableComponents;
+	
 	
 	//hardcoded price but should be changed
 	Price prWheel;
@@ -54,19 +51,23 @@ public class Panel extends JPanel {
 	public Panel() {
 
 		rules = new Rules();
-		wh = new Warehouse();
-		p = this;
+		new Warehouse();
+		
+		availableComponents = new ArrayList<SimpleComponent>();
 
-		circle = new Circle();
+		Circle circle = new Circle();
 		circle.setColor(Color.GREEN);
 		Rectangle rect = new Rectangle();
 		rect.setColor(Color.RED);
 		
-		wheel = new SimpleComponent();
-		engine = new SimpleComponent();
+		SimpleComponent wheel = new SimpleComponent("wheel");
+		SimpleComponent engine = new SimpleComponent("engine");
 
 		wheel.setFigure(circle);
 		engine.setFigure(rect);
+		
+		availableComponents.add(wheel);
+		availableComponents.add(engine);
 		
 		//hardcoded price but should be changed
 		
@@ -105,11 +106,12 @@ public class Panel extends JPanel {
 		retrieveProduct.setVisible(true);
 		this.add(retrieveProduct);
 
-		availableComponents = new JComboBox<String>();
-		availableComponents.addItem("wheel");
-		availableComponents.addItem("engine");
-		availableComponents.setVisible(true);
-		this.add(availableComponents);
+		availableComponentsBox = new JComboBox<String>();
+		for (SimpleComponent component : availableComponents) {
+			availableComponentsBox.addItem(component.getName());
+		}
+		availableComponentsBox.setVisible(true);
+		this.add(availableComponentsBox);
 
 		addRule = new JButton("Add");
 		addRule.addActionListener(new AddRuleListener(this));
@@ -161,14 +163,15 @@ public class Panel extends JPanel {
 	}
 	
 	public SimpleComponent getRuleToAdd() {
-		switch (availableComponents.getSelectedItem().toString()) {
-		case "wheel":
-			return wheel;
-		case "engine":
-			return engine;
+		String componentName = availableComponentsBox.getSelectedItem().toString();
+		
+		for (SimpleComponent component : availableComponents) {
+			if (component.getName() == componentName) {
+				return component;
+			}
 		}
 		
-		return new SimpleComponent();
+		return new SimpleComponent("invalid component");
 	}
 
 }
