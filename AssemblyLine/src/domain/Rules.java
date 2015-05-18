@@ -23,6 +23,9 @@ public class Rules {
 		rules.remove(object);
 	}
 	
+	public void removeRuleAt(int index){
+		rules.remove(index);
+	}
 	
 	public int size() {
 		return rules.size();

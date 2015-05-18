@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Panel extends JPanel {
 
@@ -25,8 +26,11 @@ public class Panel extends JPanel {
 	private JButton nextStep;
 	private JButton newProduct;
 	private JButton retrieveProduct;
-	private JComboBox<String> simpleComponent;
-	private JButton addSimpleComponent;
+	private JComboBox<String> availableComponents;
+	private JButton addRule;
+	private JButton removeRule;
+	private JTextField removeRuleInput;
+
 
 	private AssemblyLine assemblyLine;
 	Rules rules;
@@ -95,17 +99,17 @@ public class Panel extends JPanel {
 		retrieveProduct.setVisible(true);
 		this.add(retrieveProduct);
 
-		simpleComponent = new JComboBox<String>();
-		simpleComponent.addItem("wheel");
-		simpleComponent.addItem("engine");
-		simpleComponent.setVisible(true);
-		this.add(simpleComponent);
+		availableComponents = new JComboBox<String>();
+		availableComponents.addItem("wheel");
+		availableComponents.addItem("engine");
+		availableComponents.setVisible(true);
+		this.add(availableComponents);
 
-		addSimpleComponent = new JButton("Add");
-		addSimpleComponent.addActionListener(new ActionListener() {
+		addRule = new JButton("Add");
+		addRule.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				switch (simpleComponent.getSelectedItem().toString()) {
+				switch (availableComponents.getSelectedItem().toString()) {
 				case "wheel":
 					rules.addRule(wheel);
 					assemblyLine = new AssemblyLine(rules);
@@ -118,28 +122,29 @@ public class Panel extends JPanel {
 				}
 			}
 		});
-		addSimpleComponent.setVisible(true);
-		this.add(addSimpleComponent);
+		addRule.setVisible(true);
+		this.add(addRule);
 
-		addSimpleComponent = new JButton("Remove");
-		addSimpleComponent.addActionListener(new ActionListener() {
+		removeRule = new JButton("Remove");
+		removeRule.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				switch (simpleComponent.getSelectedItem().toString()) {
-				case "wheel":
-					rules.removeRule(wheel);
-					assemblyLine = new AssemblyLine(rules);
-					p.repaint();
-					break;
-				case "engine":
-					rules.removeRule(engine);
+				int index = Integer.parseInt(removeRuleInput.getText());
+				if (index >=0 && index < rules.size()) {
+					rules.removeRuleAt(index);
 					assemblyLine = new AssemblyLine(rules);
 					p.repaint();
 				}
 			}
 		});
-		addSimpleComponent.setVisible(true);
-		this.add(addSimpleComponent);
+		removeRule.setVisible(true);
+		this.add(removeRule);
+		
+		removeRuleInput = new JTextField("mm");
+		removeRuleInput.setPreferredSize(removeRuleInput.getPreferredSize());
+		removeRuleInput.setText("0");
+		removeRuleInput.setVisible(true);
+		this.add(removeRuleInput);
 
 		frame.setVisible(true);
 	}
@@ -160,6 +165,10 @@ public class Panel extends JPanel {
 
 	public AssemblyLine getAssemblyLine() {
 		return assemblyLine;
+	}
+	
+	public Rules getRules() {
+		return rules;
 	}
 
 }
