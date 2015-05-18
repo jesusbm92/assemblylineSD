@@ -21,6 +21,10 @@ class ComposedComponent extends Component {
         	height = Math.max(height, childImages.get(childImages.size()-1).getHeight());
         }
         
+        if (width == 0 || height == 0) {
+        	width = 1; height = 1;
+        }
+        
         BufferedImage img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = img.createGraphics();
         

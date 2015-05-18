@@ -22,7 +22,7 @@ public class SimpleComponent extends Component{
 	@Override
 	public BufferedImage draw() {
 		if (figure == null) {
-			return new BufferedImage(0,0,BufferedImage.TYPE_INT_RGB);
+			return new BufferedImage(1,1,BufferedImage.TYPE_INT_RGB);
 		}
 		
 		return figure.draw();
