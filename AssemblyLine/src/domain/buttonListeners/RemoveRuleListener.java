@@ -17,7 +17,7 @@ public class RemoveRuleListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		int index = panel.getToRemoveRuleIndex();
 		if (index >=0 && index < panel.getRules().size()) {
-			panel.getRules().removeRuleAt(index);
+			panel.getRules().removeComponentAt(index);
 			panel.reloadAssemblyLine();
 			panel.repaint();
 		}

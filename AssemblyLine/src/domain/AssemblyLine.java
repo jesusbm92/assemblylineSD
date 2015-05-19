@@ -21,7 +21,7 @@ public class AssemblyLine {
 		this.rules = rules;
 		
 		for (int i=0; i<rules.size(); i++) {
-			AssemblyStation station = new AssemblyStation(rules.getRuleAt(i));
+			AssemblyStation station = new AssemblyStation(rules.getComponentAt(i));
 			stations.add(station);
 		}
 		

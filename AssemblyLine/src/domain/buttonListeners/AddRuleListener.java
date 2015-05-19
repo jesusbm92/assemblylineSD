@@ -15,7 +15,7 @@ public class AddRuleListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		panel.getRules().addRule(panel.getRuleToAdd());
+		panel.getRules().addComponent(panel.getRuleToAdd());
 		panel.reloadAssemblyLine();
 		panel.repaint();
 	}

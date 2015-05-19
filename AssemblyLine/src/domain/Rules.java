@@ -7,23 +7,18 @@ public class Rules {
 
     private List<SimpleComponent> rules = new ArrayList<SimpleComponent>();
 	
-	public Rules()
-	{
-		
-	}
-	
 	//The handler will call addRule with the name of the 
 	//object to add a rule
-	public void addRule(SimpleComponent object)
+	public void addComponent(SimpleComponent object)
 	{
 		rules.add(object);
 	}
 	
-	public void removeRule(SimpleComponent object){
+	public void removeComponent(SimpleComponent object){
 		rules.remove(object);
 	}
 	
-	public void removeRuleAt(int index){
+	public void removeComponentAt(int index){
 		rules.remove(index);
 	}
 	
@@ -31,7 +26,7 @@ public class Rules {
 		return rules.size();
 	}
 	
-	public SimpleComponent getRuleAt(int index) {
+	public SimpleComponent getComponentAt(int index) {
 		return rules.get(index);
 	}
 	
