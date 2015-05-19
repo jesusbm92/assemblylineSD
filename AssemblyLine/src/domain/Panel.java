@@ -9,7 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import domain.buttonListeners.NewProductListener;
 import domain.buttonListeners.NextStepListener;
@@ -22,7 +21,7 @@ public class Panel extends JPanel {
 	 */
 	private static final long serialVersionUID = 4729136638637503204L;
 	private static final int HEIGHT = 400;
-	private static final int WIDTH = 700;
+	private static final int WIDTH = 750;
 
 	private JButton nextStep;
 	private JButton newProduct;
@@ -70,15 +69,12 @@ public class Panel extends JPanel {
 			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
 		}
 		
-		// display the dialog to get the rules
-		RulesDialog rulesDialog = new RulesDialog(frame);
 		List<SimpleComponent> availableComponents = new ArrayList<SimpleComponent>();
 		for (EntryComponent entry : warehouse.getAvailableComponents()) {
 			availableComponents.add(entry.getType());
 		}
-		rulesDialog.display(availableComponents);
 		
-		assemblyLine = new AssemblyLine(rulesDialog.getRules());
+		assemblyLine = new AssemblyLine(availableComponents);
 
 		frame.setVisible(true);
 	}

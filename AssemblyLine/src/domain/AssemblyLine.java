@@ -17,10 +17,14 @@ public class AssemblyLine {
 	private int componentPosition;
 	private ComposedComponent workpiece;
 
-	public AssemblyLine(Rules rules) {
+	public AssemblyLine(List<SimpleComponent> availableComponents) {
 		finishedWorkpieces = new ArrayList<ComposedComponent>();
 		stations = new ArrayList<AssemblyStation>();
-		this.rules = rules;
+		
+		RulesDialog rulesDialog = new RulesDialog(null);
+		rulesDialog.display(availableComponents);
+		
+		this.rules = rulesDialog.getRules();
 		
 		for (int i=0; i<rules.size(); i++) {
 			AssemblyStation station = new AssemblyStation(rules.getComponentAt(i));
