@@ -1,10 +1,14 @@
 package domain;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class Rectangle extends Figure {
 
+	public Rectangle(int width, int height, Color color) {
+		super(width, height, color);
+	}
 
 	@Override
 	public BufferedImage draw() {

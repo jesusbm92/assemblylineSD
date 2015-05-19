@@ -1,10 +1,15 @@
 package domain;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 
 public class Triangle extends Figure {
+
+	public Triangle(int width, int height, Color color) {
+		super(width, height, color);
+	}
 
 	@Override
 	public BufferedImage draw() {

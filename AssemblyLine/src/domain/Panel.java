@@ -1,12 +1,9 @@
 package domain;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -53,12 +50,9 @@ public class Panel extends JPanel {
 		availableComponents = new ArrayList<SimpleComponent>();
 		stockComponents = new ArrayList<EntryComponent>();
 
-		Circle circle = new Circle();
-		circle.setColor(Color.GREEN);
-		Rectangle rect = new Rectangle();
-		rect.setColor(Color.RED);
-		Triangle triangle = new Triangle();
-		triangle.setColor(Color.BLUE);
+		Circle circle = new Circle(10, 10, Color.GREEN);
+		Rectangle rect = new Rectangle(10, 10, Color.RED);
+		Triangle triangle = new Triangle(10, 10, Color.BLUE);
 		
 		SimpleComponent wheel = new SimpleComponent("wheel");
 		SimpleComponent engine = new SimpleComponent("engine");
