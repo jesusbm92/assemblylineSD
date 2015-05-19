@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class AssemblyLine {
 
 	private List<ComposedComponent> finishedWorkpieces;
@@ -51,7 +53,10 @@ public class AssemblyLine {
 			return;
 		}
 		
-		stations.get(componentPosition).placeComponent(workpiece);
+		if (!stations.get(componentPosition).placeComponent(workpiece)) {
+			componentPosition--;
+			JOptionPane.showMessageDialog(null, "Running low on parts, call your local dealer!");
+		}
 	}
 
 	public Component retrieveFinishedProduct() {

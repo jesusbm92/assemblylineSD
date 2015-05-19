@@ -12,8 +12,7 @@ public class AssemblyStation  {
 	}
 	
 	public Boolean placeComponent(ComposedComponent p) {
-		p.add(component);
-		return true;
+		return p.add(component);
 	}
 	
 	public BufferedImage draw(int width, int height) {
