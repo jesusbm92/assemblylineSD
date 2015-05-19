@@ -15,7 +15,7 @@ public class EntryComponent {
 	}
 	
 	public Boolean request(){
-		if (stock <= 1) {
+		if (stock <= 0) {
 			return false;
 		}
 		

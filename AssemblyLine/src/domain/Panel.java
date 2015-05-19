@@ -11,10 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import domain.buttonListeners.AddRuleListener;
 import domain.buttonListeners.NewProductListener;
 import domain.buttonListeners.NextStepListener;
-import domain.buttonListeners.RemoveRuleListener;
 import domain.buttonListeners.RetrieveProductListener;
 
 public class Panel extends JPanel {
@@ -29,122 +27,58 @@ public class Panel extends JPanel {
 	private JButton nextStep;
 	private JButton newProduct;
 	private JButton retrieveProduct;
-	private JComboBox<String> availableComponentsBox;
 	private JComboBox<String> stockComponentsBox;
-	private JButton addRule;
-	private JButton removeRule;
-	private JTextField removeRuleInput;
 	private JLabel stockLabel;
 
-
 	private AssemblyLine assemblyLine;
-	private Rules rules;
-    private List<SimpleComponent> availableComponents;
-    private List<EntryComponent> stockComponents;
-	
+	private Warehouse warehouse;
 	
 	public Panel() {
-
-		rules = new Rules();
-
-		availableComponents = new ArrayList<SimpleComponent>();
-		stockComponents = new ArrayList<EntryComponent>();
-
-		Circle circle = new Circle(10, 10, Color.GREEN);
-		Rectangle rect = new Rectangle(10, 10, Color.RED);
-		Triangle triangle = new Triangle(10, 10, Color.BLUE);
-		
-		SimpleComponent wheel = new SimpleComponent("wheel");
-		SimpleComponent engine = new SimpleComponent("engine");
-		SimpleComponent window = new SimpleComponent("window");
-		
-		EntryComponent wheelEntry = new EntryComponent(wheel);
-		wheelEntry.requestStock(5);
-		wheel.setEntryComponent(wheelEntry);
-		EntryComponent engineEntry = new EntryComponent(engine);
-		engineEntry.requestStock(5);
-		engine.setEntryComponent(engineEntry);
-		EntryComponent windowEntry = new EntryComponent(window);
-		windowEntry.requestStock(5);
-		window.setEntryComponent(windowEntry);
-
-		wheel.setFigure(circle);
-		engine.setFigure(rect);
-		window.setFigure(triangle);
-		
-		availableComponents.add(wheel);
-		availableComponents.add(engine);
-		availableComponents.add(window);
-
-		stockComponents.add(wheelEntry);
-		stockComponents.add(engineEntry);
-		stockComponents.add(windowEntry);
-		
-		//hardcoded price but should be changed
-		wheel.setPrice(new Price(5.2));
-		engine.setPrice(new Price(100));
-		window.setPrice(new Price(45));
-		//hardcoded price but should be changed
-
-		assemblyLine = new AssemblyLine(rules);
-
 		JFrame frame = new JFrame("Assembly Line");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setBackground(Color.BLACK);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.BLACK);
-		this.setVisible(true);
 		frame.add(this);
 
 		newProduct = new JButton("New input product");
 		newProduct.addActionListener(new NewProductListener(this));
-		newProduct.setVisible(true);
 		this.add(newProduct);
 
 		nextStep = new JButton("Place next component");
 		nextStep.addActionListener(new NextStepListener(this));
-		nextStep.setVisible(true);
 		this.add(nextStep);
 
 		retrieveProduct = new JButton("Retrieve finished product");
 		retrieveProduct.addActionListener(new RetrieveProductListener(this));
-		retrieveProduct.setVisible(true);
 		this.add(retrieveProduct);
 
-		availableComponentsBox = new JComboBox<String>();
-		for (SimpleComponent component : availableComponents) {
-			availableComponentsBox.addItem(component.getName());
-		}
-		availableComponentsBox.setVisible(true);
-		this.add(availableComponentsBox);
-
-		addRule = new JButton("Add");
-		addRule.addActionListener(new AddRuleListener(this));
-		addRule.setVisible(true);
-		this.add(addRule);
-
-		removeRule = new JButton("Remove");
-		removeRule.addActionListener(new RemoveRuleListener(this));
-		removeRule.setVisible(true);
-		this.add(removeRule);
-		
-		removeRuleInput = new JTextField("mm");
-		removeRuleInput.setPreferredSize(removeRuleInput.getPreferredSize());
-		removeRuleInput.setText("0");
-		removeRuleInput.setVisible(true);
-		this.add(removeRuleInput);
-		
 		stockLabel = new JLabel("Stock: ");
 		stockLabel.setVisible(true);
 		stockLabel.setForeground(Color.WHITE);
 		this.add(stockLabel);
 		
 		stockComponentsBox = new JComboBox<String>();
-		for (EntryComponent component : stockComponents) {
+		this.add(stockComponentsBox);
+
+		// to come: a dialog to populate the warehouse
+		// for now its just hardcoded
+		warehouse = new Warehouse();
+		warehouse.populateWarehouse();
+		
+		for (EntryComponent component : warehouse.getAvailableComponents()) {
 			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
 		}
-		stockComponentsBox.setVisible(true);
-		this.add(stockComponentsBox);
+		
+		// display the dialog to get the rules
+		RulesDialog rulesDialog = new RulesDialog(frame);
+		List<SimpleComponent> availableComponents = new ArrayList<SimpleComponent>();
+		for (EntryComponent entry : warehouse.getAvailableComponents()) {
+			availableComponents.add(entry.getType());
+		}
+		rulesDialog.display(availableComponents);
+		
+		assemblyLine = new AssemblyLine(rulesDialog.getRules());
 
 		frame.setVisible(true);
 	}
@@ -156,7 +90,7 @@ public class Panel extends JPanel {
 				assemblyLine.draw(this.getWidth(), 200), null, 0, 100);
 		
 		stockComponentsBox.removeAllItems();
-		for (EntryComponent component : stockComponents) {
+		for (EntryComponent component : warehouse.getAvailableComponents()) {
 			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
 		}
 	}
@@ -165,28 +99,6 @@ public class Panel extends JPanel {
 		return assemblyLine;
 	}
 	
-	public void reloadAssemblyLine() {
-		assemblyLine = new AssemblyLine(rules);
-	}
 	
-	public Rules getRules() {
-		return rules;
-	}
-	
-	public int getToRemoveRuleIndex() {
-		return Integer.parseInt(removeRuleInput.getText());
-	}
-	
-	public SimpleComponent getRuleToAdd() {
-		String componentName = availableComponentsBox.getSelectedItem().toString();
-		
-		for (SimpleComponent component : availableComponents) {
-			if (component.getName() == componentName) {
-				return component;
-			}
-		}
-		
-		return new SimpleComponent("invalid component");
-	}
 
 }
