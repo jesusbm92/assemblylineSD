@@ -9,7 +9,7 @@ public class Warehouse {
 	List<EntryComponent> components;
 	
 	public Warehouse() {
-		super();
+		populateWarehouse();
 	}
 	
 	public void addNewComponent(EntryComponent e){
@@ -24,7 +24,7 @@ public class Warehouse {
 		return components;
 	}
 	
-	public void populateWarehouse() {
+	private void populateWarehouse() {
 		components = createDemoEntryComponents(createDemoObjects());
 	}
 

@@ -14,12 +14,21 @@ public class AssemblyLine {
 	private List<AssemblyStation> stations;
 	private Rules rules;
 	
+	private Warehouse warehouse;
+	
 	private int componentPosition;
 	private ComposedComponent workpiece;
 
-	public AssemblyLine(List<SimpleComponent> availableComponents) {
+	public AssemblyLine() {
 		finishedWorkpieces = new ArrayList<ComposedComponent>();
 		stations = new ArrayList<AssemblyStation>();
+		
+		warehouse = new Warehouse();
+		
+		List<SimpleComponent> availableComponents = new ArrayList<SimpleComponent>();
+		for (EntryComponent entry : warehouse.getAvailableComponents()) {
+			availableComponents.add(entry.getType());
+		}
 		
 		RulesDialog rulesDialog = new RulesDialog(null);
 		rulesDialog.display(availableComponents);
@@ -34,14 +43,14 @@ public class AssemblyLine {
 		
 	}
 	
+	public Warehouse getWarehouse() {
+		return warehouse;
+	}
+	
 
 	public void setWorkpiece(ComposedComponent p) {
 		workpiece = p;
 		componentPosition = -1;
-	}
-
-	public int getAssemblyStationCount() {
-		return stations.size();
 	}
 
 	public void advanceSimulationOneStep() {
@@ -50,7 +59,7 @@ public class AssemblyLine {
 		
 		componentPosition++;
 		
-		if (componentPosition == getAssemblyStationCount()) {
+		if (componentPosition == stations.size()) {
 			rules.checkProduct(workpiece);
 			finishedWorkpieces.add(workpiece);
 			setWorkpiece(null);
@@ -76,7 +85,7 @@ public class AssemblyLine {
 				BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = img.createGraphics();
 		
-		int gridSize = width/(getAssemblyStationCount() + 2);
+		int gridSize = width/(stations.size() + 2);
 		
 		// draw empty product
 		if (workpiece == null)
@@ -85,11 +94,11 @@ public class AssemblyLine {
 			if (componentPosition == -1) 
 				graphics.drawString("ready to build", 5, height/2 + height/4);
 			else
-				graphics.drawString("Price in moment for processed component is: " + workpiece.getPriceAmount(), 5, height/2 + height/4);
+				graphics.drawString("Price in moment for processed component is: " + workpiece.getPrice(), 5, height/2 + height/4);
 				
 		
 		// draw stations
-		for (int stationIndex = 0; stationIndex < getAssemblyStationCount(); stationIndex++) {
+		for (int stationIndex = 0; stationIndex < stations.size(); stationIndex++) {
 			graphics.drawImage(stations.get(stationIndex).draw(gridSize, height/2), null,
 					(stationIndex+1) * gridSize, 0);
 			
@@ -104,7 +113,7 @@ public class AssemblyLine {
 		int gridCells = 5;
 		for (int productIndex = 0; productIndex < finishedWorkpieces.size(); productIndex++) {
 			graphics.drawImage(finishedWorkpieces.get(productIndex).draw(), null, 
-					gridSize * (getAssemblyStationCount() + 1) + gridSize/gridCells*(productIndex%gridCells), 
+					gridSize * (stations.size() + 1) + gridSize/gridCells*(productIndex%gridCells), 
 					height/2 + gridSize/gridCells * (int)(productIndex/gridCells));
 		}
 		

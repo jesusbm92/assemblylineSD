@@ -25,7 +25,6 @@ public class AssemblyStation  {
 		graphics.drawString(component.getName(), 5, height/3);
 		graphics.drawImage(component.draw(/*metrics.getHeight() - 1, metrics.getHeight() - 1*/), null,
 				5 + metrics.stringWidth("Component:  "), height/3 - metrics.getHeight() + 1);
-		//graphics.drawString("Stock:  " + String.valueOf(component.getStock()), 5, height/3 * 2);
 		
 		return img;
 	}

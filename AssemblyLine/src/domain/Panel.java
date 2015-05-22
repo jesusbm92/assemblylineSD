@@ -1,8 +1,6 @@
 package domain;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -30,7 +28,6 @@ public class Panel extends JPanel {
 	private JLabel stockLabel;
 
 	private AssemblyLine assemblyLine;
-	private Warehouse warehouse;
 	
 	public Panel() {
 		JFrame frame = new JFrame("Assembly Line");
@@ -60,21 +57,11 @@ public class Panel extends JPanel {
 		stockComponentsBox = new JComboBox<String>();
 		this.add(stockComponentsBox);
 
-		// to come: a dialog to populate the warehouse
-		// for now its just hardcoded
-		warehouse = new Warehouse();
-		warehouse.populateWarehouse();
+		assemblyLine = new AssemblyLine();
 		
-		for (EntryComponent component : warehouse.getAvailableComponents()) {
+		for (EntryComponent component : assemblyLine.getWarehouse().getAvailableComponents()) {
 			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
-		}
-		
-		List<SimpleComponent> availableComponents = new ArrayList<SimpleComponent>();
-		for (EntryComponent entry : warehouse.getAvailableComponents()) {
-			availableComponents.add(entry.getType());
-		}
-		
-		assemblyLine = new AssemblyLine(availableComponents);
+		}		
 
 		frame.setVisible(true);
 	}
@@ -86,7 +73,7 @@ public class Panel extends JPanel {
 				assemblyLine.draw(this.getWidth(), 200), null, 0, 100);
 		
 		stockComponentsBox.removeAllItems();
-		for (EntryComponent component : warehouse.getAvailableComponents()) {
+		for (EntryComponent component : assemblyLine.getWarehouse().getAvailableComponents()) {
 			stockComponentsBox.addItem(component.getType().getName() + " - " + component.getStock());
 		}
 	}

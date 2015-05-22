@@ -28,7 +28,7 @@ public class SimpleComponent extends Component{
 		this.entryComponent = entryComponent;
 	}
 	
-	public double getPriceAmount() {
+	public double getPrice() {
 		return price.retrieveAmount();
 	}
 	
@@ -42,5 +42,6 @@ public class SimpleComponent extends Component{
 		}
 		return entryComponent.consume();
 	}
+
 	
 }
