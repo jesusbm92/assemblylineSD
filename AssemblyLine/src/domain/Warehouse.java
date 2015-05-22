@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Warehouse {
 	
-	List<EntryComponent> components;
+	private List<EntryComponent> components;
 	
 	public Warehouse() {
 		populateWarehouse();
@@ -25,18 +25,16 @@ public class Warehouse {
 	}
 	
 	private void populateWarehouse() {
-		components = createDemoEntryComponents(createDemoObjects());
+		createDemoEntryComponents(createDemoObjects());
 	}
 
-	private List<EntryComponent> createDemoEntryComponents(List<SimpleComponent> availableComponents) {
-		List<EntryComponent> list = new ArrayList<EntryComponent>();
+	private void createDemoEntryComponents(List<SimpleComponent> availableComponents) {
 		for (SimpleComponent component : availableComponents) {
 			EntryComponent entry = new EntryComponent(component);
 			entry.requestStock(5);
 			component.setEntryComponent(entry);
-			list.add(entry);
+			addNewComponent(entry);
 		}
-		return list;
 	}
 
 	private List<SimpleComponent> createDemoObjects() {
