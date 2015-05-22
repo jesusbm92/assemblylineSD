@@ -14,7 +14,7 @@ public class EntryComponent {
 		this.stock = n;
 	}
 	
-	public Boolean request(){
+	public Boolean consume(){
 		if (stock <= 0) {
 			return false;
 		}

@@ -40,7 +40,7 @@ public class SimpleComponent extends Component{
 		if (entryComponent == null) {
 			return false;
 		}
-		return entryComponent.request();
+		return entryComponent.consume();
 	}
 	
 }
