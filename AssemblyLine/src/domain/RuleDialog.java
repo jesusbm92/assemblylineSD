@@ -21,7 +21,7 @@ public class RuleDialog {
 
 	private JFrame parent;
     private JDialog dialog;
-    private Rule rules;
+    private Rule rule;
     
 //    List<SimpleComponent> availableComponents;
 //    JComboBox<String> availableComponentsBox;
@@ -33,7 +33,7 @@ public class RuleDialog {
 	private JPanel createPanel(final List<SimpleComponent> availableComponents)
     {
         JPanel panel = new JPanel();
-        rules = new Rule();
+        rule = new Rule();
 
         JLabel dialogtitlelabel = new JLabel ("Add stations to simulate");
         panel.add (dialogtitlelabel);
@@ -52,8 +52,8 @@ public class RuleDialog {
         {
             @Override public void actionPerformed (ActionEvent a)
             {
-                rules.addComponent(availableComponents.get(availableComponentsBox.getSelectedIndex()));
-                updateTextAreaWithRules(informationtxt, rules);
+                rule.addComponent(availableComponents.get(availableComponentsBox.getSelectedIndex()));
+                updateTextAreaWithRules(informationtxt, rule);
             }
         });
 
@@ -69,12 +69,12 @@ public class RuleDialog {
         {
             @Override public void actionPerformed (ActionEvent a)
             {
-            	if (availableComponentsBox.getSelectedIndex() > rules.size()) {
+            	if (availableComponentsBox.getSelectedIndex() > rule.size()) {
             		return;
             	}
             	System.out.println();
-                rules.removeComponentAt(Integer.parseInt(removeRuleInput.getText()));
-                updateTextAreaWithRules(informationtxt, rules);
+                rule.removeComponentAt(Integer.parseInt(removeRuleInput.getText()));
+                updateTextAreaWithRules(informationtxt, rule);
             }
 
         });
@@ -95,7 +95,7 @@ public class RuleDialog {
         {
             @Override public void actionPerformed (ActionEvent a)
             {
-                if (rules.size() == 0)
+                if (rule.size() == 0)
                 {
                 	JOptionPane.showMessageDialog(dialog, "Add at least one Station to continue.");
                     return;
@@ -134,8 +134,8 @@ public class RuleDialog {
 		informationtxt.setText(content);
 	}
 	
-	public Rule getRules() {
-		return rules;
+	public Rule getRule() {
+		return rule;
 	}
 
 }

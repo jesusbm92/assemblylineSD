@@ -10,7 +10,7 @@ public class Cost {
 		this.amount = amount;
 	}
 	
-	public void setPrice(double amount) {
+	public void setCost(double amount) {
 		this.amount = amount;
 		
 	}

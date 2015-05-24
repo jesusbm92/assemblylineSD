@@ -10,22 +10,20 @@ import javax.swing.JOptionPane;
 public class AssemblyLine {
 
 	private List<ComposedComponent> finishedWorkpieces;
-	
 	private List<AssemblyStation> stations;
-	private Rule rules;
-	
+	private Rule rule;
 	private Warehouse warehouse;
-	
 	private int componentPosition;
 	private ComposedComponent workpiece;
 
 	public AssemblyLine() {
+		
 		finishedWorkpieces = new ArrayList<ComposedComponent>();
 		stations = new ArrayList<AssemblyStation>();
-		
 		warehouse = new Warehouse();
 		
 		List<SimpleComponent> availableComponents = new ArrayList<SimpleComponent>();
+		
 		for (EntryComponent entry : warehouse.getAvailableComponents()) {
 			availableComponents.add(entry.getType());
 		}
@@ -33,10 +31,13 @@ public class AssemblyLine {
 		RuleDialog rulesDialog = new RuleDialog(null);
 		rulesDialog.display(availableComponents);
 		
-		this.rules = rulesDialog.getRules();
+		this.rule = rulesDialog.getRule();
 		
-		for (int i=0; i<rules.size(); i++) {
-			AssemblyStation station = new AssemblyStation(rules.getComponentAt(i));
+		for (int i=0; i<rule.size(); i++) {
+			AssemblyStation station = new AssemblyStation();
+			
+			station.setComponentType (rule.getComponentAt(i));
+			
 			stations.add(station);
 		}
 		
@@ -60,7 +61,7 @@ public class AssemblyLine {
 		componentPosition++;
 		
 		if (componentPosition == stations.size()) {
-			rules.checkProduct(workpiece);
+			rule.checkProduct(workpiece);
 			finishedWorkpieces.add(workpiece);
 			setWorkpiece(null);
 			return;

@@ -5,40 +5,40 @@ import java.util.List;
 
 public class Rule {
 
-    private List<SimpleComponent> rules = new ArrayList<SimpleComponent>();
+    private List<SimpleComponent> rule = new ArrayList<SimpleComponent>();
 	
 	//The handler will call addRule with the name of the 
 	//object to add a rule
 	public void addComponent(SimpleComponent object)
 	{
-		rules.add(object);
+		rule.add(object);
 	}
 	
 	public void removeComponent(SimpleComponent object){
-		rules.remove(object);
+		rule.remove(object);
 	}
 	
 	public void removeComponentAt(int index){
-		rules.remove(index);
+		rule.remove(index);
 	}
 	
 	public int size() {
-		return rules.size();
+		return rule.size();
 	}
 	
 	public SimpleComponent getComponentAt(int index) {
-		return rules.get(index);
+		return rule.get(index);
 	}
 	
 	//To check if the assembly is legitimate, a composed component can be checked against the rules
 	public boolean checkProduct(ComposedComponent product)
 	{
-		if (product.retrieveComponents().size() != rules.size()) {
+		if (product.retrieveComponents().size() != rule.size()) {
 			return false;
 		}
 		
-		for (int i=0; i<rules.size(); i++) {
-			if (rules.get(i) != product.retrieveComponents().get(i)) {//@todo check this, comparing component with simplecomponent
+		for (int i=0; i<rule.size(); i++) {
+			if (rule.get(i) != product.retrieveComponents().get(i)) {//@todo check this, comparing component with simplecomponent
 				return false;
 			}
 		}

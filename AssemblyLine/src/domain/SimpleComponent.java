@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 public class SimpleComponent extends Component{
 	
 	private EntryComponent entryComponent;
-	private Cost price;
+	private Cost cost;
 
 	public SimpleComponent(String string) {
 		super(string);
@@ -29,11 +29,11 @@ public class SimpleComponent extends Component{
 	}
 	
 	public double getPrice() {
-		return price.retrieveAmount();
+		return cost.retrieveAmount();
 	}
 	
-	public void setPrice(Cost p) {
-		this.price = p;
+	public void setCost(Cost p) {
+		this.cost = p;
 	}
 	
 	public Boolean consume() {

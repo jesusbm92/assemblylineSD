@@ -7,12 +7,18 @@ import java.awt.image.BufferedImage;
 public class AssemblyStation  {
 	private SimpleComponent component;
 	
-	public AssemblyStation(SimpleComponent c) {
+	public AssemblyStation() {
+			
+	}
+	
+	public void setComponentType(SimpleComponent c) {
 		component = c;	
 	}
 	
 	public Boolean placeComponent(ComposedComponent p) {
 		return p.add(component);
+		
+		
 	}
 	
 	public BufferedImage draw(int width, int height) {
