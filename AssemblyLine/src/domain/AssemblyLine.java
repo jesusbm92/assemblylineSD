@@ -12,7 +12,7 @@ public class AssemblyLine {
 	private List<ComposedComponent> finishedWorkpieces;
 	
 	private List<AssemblyStation> stations;
-	private Rules rules;
+	private Rule rules;
 	
 	private Warehouse warehouse;
 	

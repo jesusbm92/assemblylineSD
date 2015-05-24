@@ -21,7 +21,7 @@ public class RulesDialog {
 
 	private JFrame parent;
     private JDialog dialog;
-    private Rules rules;
+    private Rule rules;
     
 //    List<SimpleComponent> availableComponents;
 //    JComboBox<String> availableComponentsBox;
@@ -33,7 +33,7 @@ public class RulesDialog {
 	private JPanel createPanel(final List<SimpleComponent> availableComponents)
     {
         JPanel panel = new JPanel();
-        rules = new Rules();
+        rules = new Rule();
 
         JLabel dialogtitlelabel = new JLabel ("Add stations to simulate");
         panel.add (dialogtitlelabel);
@@ -126,7 +126,7 @@ public class RulesDialog {
 	}
 	
 	private void updateTextAreaWithRules(JTextArea informationtxt,
-			Rules rules) {
+			Rule rules) {
 		String content = "";
 		for (int i=0; i<rules.size(); i++) {
 			content += i + " - " + rules.getComponentAt(i).getName() + "\n";
@@ -134,7 +134,7 @@ public class RulesDialog {
 		informationtxt.setText(content);
 	}
 	
-	public Rules getRules() {
+	public Rule getRules() {
 		return rules;
 	}
 

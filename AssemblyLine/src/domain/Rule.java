@@ -3,7 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rules {
+public class Rule {
 
     private List<SimpleComponent> rules = new ArrayList<SimpleComponent>();
 	
