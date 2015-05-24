@@ -9,7 +9,9 @@ public class Warehouse {
 	private List<EntryComponent> components;
 	
 	public Warehouse() {
+		components = new ArrayList<EntryComponent>();
 		populateWarehouse();
+		
 	}
 	
 	public void addNewComponent(EntryComponent e){
