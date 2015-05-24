@@ -30,7 +30,7 @@ public class AssemblyLine {
 			availableComponents.add(entry.getType());
 		}
 		
-		RulesDialog rulesDialog = new RulesDialog(null);
+		RuleDialog rulesDialog = new RuleDialog(null);
 		rulesDialog.display(availableComponents);
 		
 		this.rules = rulesDialog.getRules();

@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-public class RulesDialog {
+public class RuleDialog {
 
 	private JFrame parent;
     private JDialog dialog;
@@ -26,7 +26,7 @@ public class RulesDialog {
 //    List<SimpleComponent> availableComponents;
 //    JComboBox<String> availableComponentsBox;
     
-	public RulesDialog(JFrame owner) {
+	public RuleDialog(JFrame owner) {
 		this.parent = owner;
 	}
 	
