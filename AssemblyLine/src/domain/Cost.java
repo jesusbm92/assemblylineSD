@@ -1,12 +1,12 @@
 package domain;
 
-public class Price {
+public class Cost {
 	private double amount = 0;
 	
-	public Price(){
+	public Cost(){
 	}
 	
-	public Price(double amount) {
+	public Cost(double amount) {
 		this.amount = amount;
 	}
 	

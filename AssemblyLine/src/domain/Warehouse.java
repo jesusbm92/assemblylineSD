@@ -55,9 +55,9 @@ public class Warehouse {
 		window.setFigure(triangle);
 		
 		//hardcoded price but should be changed
-		wheel.setPrice(new Price(5.2));
-		engine.setPrice(new Price(100));
-		window.setPrice(new Price(45));
+		wheel.setPrice(new Cost(5.2));
+		engine.setPrice(new Cost(100));
+		window.setPrice(new Cost(45));
 		
 		list.add(wheel);
 		list.add(engine);
