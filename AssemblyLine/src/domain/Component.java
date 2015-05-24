@@ -28,7 +28,7 @@ abstract class Component{
 	}
 	
 	public abstract BufferedImage draw();
-	public abstract double getPrice();
+	public abstract double getCost();
 
 
 }

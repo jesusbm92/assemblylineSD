@@ -56,11 +56,11 @@ public class ComposedComponent extends Component {
     	return childComponents;
     }
     
-    public double getPrice(){
+    public double getCost(){
     	double pr = 0;
     	
     	for (int i=0;i<this.childComponents.size();i++){
-    		pr = pr + this.childComponents.get(i).getPrice();	
+    		pr = pr + this.childComponents.get(i).getCost();	
     	}
     	
     	return pr;

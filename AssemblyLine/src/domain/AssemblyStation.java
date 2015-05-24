@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class AssemblyStation  {
 	private SimpleComponent component;
-	
+	//private EntryComponent entryComponent;
 	public AssemblyStation() {
 			
 	}

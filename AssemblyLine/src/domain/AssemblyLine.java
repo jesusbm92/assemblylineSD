@@ -90,12 +90,12 @@ public class AssemblyLine {
 		
 		// draw empty product
 		if (workpiece == null)
-			graphics.drawString("need new input", 5, height/2 + height/4);
+			graphics.drawString("Press new input product", 5, height/2 + height/4);
 		else
 			if (componentPosition == -1) 
 				graphics.drawString("ready to build", 5, height/2 + height/4);
 			else
-				graphics.drawString("Price in moment for processed component is: " + workpiece.getPrice(), 5, height/2 + height/4);
+				graphics.drawString("Cost in moment for processed component is: " + workpiece.getCost(), 5, height/2 + height/4);
 				
 		
 		// draw stations
