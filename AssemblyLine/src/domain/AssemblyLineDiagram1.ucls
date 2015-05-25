@@ -1,43 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="domain.AssemblyStation" project="AssemblyLine" 
-    file="/AssemblyLine/src/domain/AssemblyStation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="119" y="81"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="domain.Warehouse" project="AssemblyLine" 
+  <class id="1" language="java" name="domain.Warehouse" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/Warehouse.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="822" y="107"/>    
+    <position height="-1" width="-1" x="912" y="111"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="domain.EntryComponent" project="AssemblyLine" 
+  <class id="2" language="java" name="domain.EntryComponent" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/EntryComponent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="884" y="343"/>    
+    <position height="-1" width="-1" x="450" y="309"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="domain.SimpleComponent" project="AssemblyLine" 
-    file="/AssemblyLine/src/domain/SimpleComponent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="128" y="352"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="domain.Figure" project="AssemblyLine" file="/AssemblyLine/src/domain/Figure.java" 
+  <class id="3" language="java" name="domain.Figure" project="AssemblyLine" file="/AssemblyLine/src/domain/Figure.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="618" y="479"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="domain.Component" project="AssemblyLine" 
+  <class id="4" language="java" name="domain.Component" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/Component.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="482" y="583"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -55,25 +37,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="domain.Cost" project="AssemblyLine" file="/AssemblyLine/src/domain/Cost.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="95" y="551"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="domain.AssemblyLine" project="AssemblyLine" 
+  <class id="5" language="java" name="domain.AssemblyLine" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/AssemblyLine.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="261" x="301" y="-11"/>    
+    <position height="-1" width="-1" x="497" y="87"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="domain.Circle" project="AssemblyLine" file="/AssemblyLine/src/domain/Circle.java" 
+  <class id="6" language="java" name="domain.Circle" project="AssemblyLine" file="/AssemblyLine/src/domain/Circle.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="947" y="548"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="domain.Rectangle" project="AssemblyLine" 
+  <class id="7" language="java" name="domain.Rectangle" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/Rectangle.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="803" y="668"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,109 +64,161 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="domain.ComposedComponent" project="AssemblyLine" 
+  <class id="8" language="java" name="domain.ComposedComponent" project="AssemblyLine" 
     file="/AssemblyLine/src/domain/ComposedComponent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="265" y="582"/>    
+    <position height="-1" width="-1" x="789" y="339"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="entryComponent"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="15">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
+  <class id="9" language="java" name="domain.Panel" project="AssemblyLine" file="/AssemblyLine/src/domain/Panel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1154" y="377"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="domain.Cost" project="AssemblyLine" file="/AssemblyLine/src/domain/Cost.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="126" y="578"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="domain.AssemblyStation" project="AssemblyLine" 
+    file="/AssemblyLine/src/domain/AssemblyStation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="176" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="domain.SimpleComponent" project="AssemblyLine" 
+    file="/AssemblyLine/src/domain/SimpleComponent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="230" x="29" y="252"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="13">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="16">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="17" name="warehouse"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="20" name="components"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="23" name="stations"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+  <association id="14">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="15" name="warehouse"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="5"/>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="26">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="27" name="figure"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
+  <association id="18">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="19" name="assemblyLine"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
+  <association id="21">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="30" name="component"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+      <attribute id="22" name="components"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="6"/>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="33">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="34" name="type"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="37" name="workpiece"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+  <association id="25">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="26" name="stations"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="40">    
+  <association id="28">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="41" name="childComponents"/>      
-      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
+      <attribute id="29" name="component"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="44" name="finishedWorkpieces"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+  <association id="31">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="32" name="figure"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="35" name="type"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="38" name="warehouse"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="41" name="cost"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="44">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="45" name="workpiece"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="48" name="childComponents"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="51" name="finishedWorkpieces"/>      
+      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

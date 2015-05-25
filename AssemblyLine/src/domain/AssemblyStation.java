@@ -3,10 +3,13 @@ package domain;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AssemblyStation  {
 	private SimpleComponent component;
-	//private EntryComponent entryComponent;
+	private Warehouse warehouse;
+	
 	public AssemblyStation() {
 			
 	}
@@ -16,9 +19,30 @@ public class AssemblyStation  {
 	}
 	
 	public Boolean placeComponent(ComposedComponent p) {
-		return p.add(component);
+		 List<EntryComponent> components=new ArrayList<EntryComponent>();
+		 components= warehouse.getAvailableComponents();
+		 boolean ComponentExists=false;
+		 
+		for (EntryComponent entryComponent : components) {
+			
+			if(entryComponent.getType().equals(component)){
+				ComponentExists=entryComponent.consume();
+				
+			}
+			
+		}
+		if (ComponentExists){
+			p.add(component);
+			
+		}
+		
+		return ComponentExists;
 		
 		
+	}
+	
+	public void setWarehouse(Warehouse c) {
+		warehouse = c;	
 	}
 	
 	public BufferedImage draw(int width, int height) {

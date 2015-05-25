@@ -34,7 +34,7 @@ public class Warehouse {
 		for (SimpleComponent component : availableComponents) {
 			EntryComponent entry = new EntryComponent(component);
 			entry.requestStock(5);
-			component.setEntryComponent(entry);
+			//component.setEntryComponent(entry);
 			addNewComponent(entry);
 		}
 	}

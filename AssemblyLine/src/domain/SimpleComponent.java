@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class SimpleComponent extends Component{
 	
-	private EntryComponent entryComponent;
+	//private EntryComponent entryComponent;
 	private Cost cost;
 
 	public SimpleComponent(String string) {
@@ -20,13 +20,13 @@ public class SimpleComponent extends Component{
 		return figure.draw();
 	}
 
-	public EntryComponent getEntryComponent() {
+	/*public EntryComponent getEntryComponent() {
 		return entryComponent;
-	}
+	}*/
 
-	public void setEntryComponent(EntryComponent entryComponent) {
+	/*public void setEntryComponent(EntryComponent entryComponent) {
 		this.entryComponent = entryComponent;
-	}
+	}*/
 	
 	public double getCost() {
 		return cost.retrieveAmount();
@@ -36,12 +36,12 @@ public class SimpleComponent extends Component{
 		this.cost = p;
 	}
 	
-	public Boolean consume() {
+	/*public Boolean consume() {
 		if (entryComponent == null) {
 			return false;
 		}
 		return entryComponent.consume();
-	}
+	}*/
 
 	
 }

@@ -33,9 +33,12 @@ public class AssemblyLine {
 		
 		this.rule = rulesDialog.getRule();
 		
+		
+		
+		
 		for (int i=0; i<rule.size(); i++) {
 			AssemblyStation station = new AssemblyStation();
-			
+			station.setWarehouse(warehouse);
 			station.setComponentType (rule.getComponentAt(i));
 			
 			stations.add(station);

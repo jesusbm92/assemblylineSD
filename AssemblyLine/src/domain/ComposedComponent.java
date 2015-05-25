@@ -39,9 +39,9 @@ public class ComposedComponent extends Component {
 
     //Adds the component to the composition.
     public Boolean add(SimpleComponent component) {
-    	if (!component.consume()) {
+    	/*if (!component.consume()) {
     		return false;
-    	}
+    	}*/
     	childComponents.add(component);
     	return true;
     }
