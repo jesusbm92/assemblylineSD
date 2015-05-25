@@ -19,21 +19,20 @@ import javax.swing.ScrollPaneConstants;
 
 public class RuleDialog {
 
-	private JFrame parent;
+	private JFrame parent = null;
     private JDialog dialog;
     private Rule rule;
     
 //    List<SimpleComponent> availableComponents;
 //    JComboBox<String> availableComponentsBox;
     
-	public RuleDialog(JFrame owner) {
-		this.parent = owner;
+	public RuleDialog(Rule rule) {
+		this.rule = rule;
 	}
 	
 	private JPanel createPanel(final List<SimpleComponent> availableComponents)
     {
         JPanel panel = new JPanel();
-        rule = new Rule();
 
         JLabel dialogtitlelabel = new JLabel ("Add stations to simulate");
         panel.add (dialogtitlelabel);

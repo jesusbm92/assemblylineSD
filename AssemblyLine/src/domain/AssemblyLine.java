@@ -28,13 +28,7 @@ public class AssemblyLine {
 			availableComponents.add(entry.getType());
 		}
 		
-		RuleDialog rulesDialog = new RuleDialog(null);
-		rulesDialog.display(availableComponents);
-		
-		this.rule = rulesDialog.getRule();
-		
-		
-		
+		this.rule = new Rule(availableComponents);
 		
 		for (int i=0; i<rule.size(); i++) {
 			AssemblyStation station = new AssemblyStation();

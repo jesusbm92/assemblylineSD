@@ -7,6 +7,11 @@ public class Rule {
 
     private List<SimpleComponent> rule = new ArrayList<SimpleComponent>();
 	
+    public Rule(List<SimpleComponent> availableComponents) {
+    	RuleDialog dialog = new RuleDialog(this);
+    	dialog.display(availableComponents);
+    }
+    
 	//The handler will call addRule with the name of the 
 	//object to add a rule
 	public void addComponent(SimpleComponent object)
