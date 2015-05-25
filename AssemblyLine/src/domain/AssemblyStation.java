@@ -3,8 +3,6 @@ package domain;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AssemblyStation  {
 	private SimpleComponent component;
@@ -19,26 +17,12 @@ public class AssemblyStation  {
 	}
 	
 	public Boolean placeComponent(ComposedComponent p) {
-		 List<EntryComponent> components=new ArrayList<EntryComponent>();
-		 components= warehouse.getAvailableComponents();
-		 boolean ComponentExists=false;
-		 
-		for (EntryComponent entryComponent : components) {
-			
-			if(entryComponent.getType().equals(component)){
-				ComponentExists=entryComponent.consume();
-				
-			}
-			
-		}
-		if (ComponentExists){
+		if (warehouse.consume(component)) {
 			p.add(component);
-			
+			return true;
+		} else {
+			return false;
 		}
-		
-		return ComponentExists;
-		
-		
 	}
 	
 	public void setWarehouse(Warehouse c) {

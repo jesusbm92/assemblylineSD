@@ -26,6 +26,17 @@ public class Warehouse {
 		return components;
 	}
 	
+	public Boolean consume(SimpleComponent type) {
+		for (EntryComponent entryComponent : components) {
+			
+			if(entryComponent.getType().equals(type)){
+				return entryComponent.consume();
+			}
+		}
+
+		return false;
+	}
+	
 	private void populateWarehouse() {
 		createDemoEntryComponents(createDemoObjects());
 	}
